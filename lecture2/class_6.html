@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- //作用域 -->
+		<script type="text/javascript">
+			 var a = 1; //全局变量
+			 function test() { //全局函数
+				 var b = 10; //局部变量
+			 }
+			 // Js解析过程:预解析过程&逐行解析过程
+			 // 预解析:
+			 /* 	所有变量，在代码真正运行前，都未定义 var aa
+					所有函数，在函数真正运行前，都是整个函数块； f1() {...}
+					遇到重名，只留下一个；变量和函数重名留函数；
+				
+				逐行解析：
+					表达式
+					函数也是作用域
+					函数中，局部优先
+			 
+			 */
+			 
+			 var a  = 1;
+			 function f1() {  //若 function f1(a): undefined,1
+				 alert(a);
+				 a = 2;  // 1, 2 
+				 //若 var a = 2 : undefined, 1
+			 }
+			 f1();
+			 alert(a);
+		</script>
+		
+	</body>
+</html>

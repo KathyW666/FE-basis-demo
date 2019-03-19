@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#box {
+				width: 320px;
+				height: 568px;
+				margin: 50px auto;
+				position: relative;
+			}
+
+			.bigImg {
+				width: 320px;
+				height: 568px;
+			}
+
+			.bt {
+				position: absolute;
+				text-decoration: none;
+			}
+
+			#box .bt1 {
+				left: 5px;
+				bottom: 135px;
+			}
+
+			#box .bt2 {
+				left: 5px;
+				bottom: 65px;
+			}
+
+			#box .bt3 {
+				left: 5px;
+				bottom: 5px;
+			}
+
+			#box .bt4 {
+				right: 5px;
+				bottom: 135px;
+			}
+
+			#box .bt5 {
+				right: 5px;
+				bottom: 65px;
+			}
+
+			#box .bt6 {
+				right: 5px;
+				bottom: 5px;
+			}
+		</style>
+
+		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var oImg = $('box').getElementsByTagName('img')[0];
+				var aBt = $('box').getElementsByTagName('a');
+				var page = 0;
+				var timer = null;
+				var currentBt = null;
+
+				// 图片信息
+				var arr1 = [80, 39, 27, 23, 55, 12];
+				// 图片前缀
+				var arr2 = ['drink', 'eat', 'fart', 'pie', 'scratch', 'cymbal'];
+
+				for (var i = 0; i < aBt.length; i++) {
+					aBt[i].index = i;
+					aBt[i].onclick = function() {
+						stopTimer();
+						currentBt = this;
+						startTimer();
+					};
+				}
+
+				function startTimer() {
+					if (timer == null) {
+						timer = setInterval(upDate, 100); // bug1, 没设置timer
+					}
+				}
+
+				function stopTimer() {
+					clearInterval(timer);
+					timer = null;
+				}
+
+				function upDate() {
+					page++;
+					changeView();
+				}
+
+				function changeView() {
+					if (page > arr1[currentBt.index]) {
+						page = 0;
+						stopTimer();
+					}
+					oImg.src = "img2/" + arr2[currentBt.index] + "/" + arr2[currentBt.index] + "_" + formate(page, 2) + ".jpg";
+				}
+
+				function formate(page, n) {
+					var str = page.toString();
+					while (str.length != n) {
+						str = "0" + str;
+					}
+					return str;
+				}
+
+			});
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img2/angry/angry_00.jpg" class="bigImg">
+			<a href="#" class="bt bt1"><img src="img2/Buttons/drink.png"></a>
+			<a href="#" class="bt bt2"><img src="img2/Buttons/eat.png"></a>
+			<a href="#" class="bt bt3"><img src="img2/Buttons/fart.png"></a>
+			<a href="#" class="bt bt4"><img src="img2/Buttons/pie.png"></a>
+			<a href="#" class="bt bt5"><img src="img2/Buttons/scratch.png"></a>
+			<a href="#" class="bt bt6"><img src="img2/Buttons/cymbal.png"></a>
+		</div>
+	</body>
+</html>

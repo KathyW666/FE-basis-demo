@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="text" placeholder="please enter your name" id="name" value="Tom">
+  <input type="button" id="bt" value="submit">
+
+  <script type="text/javascript">
+    var oText = document.getElementById("name");
+    var oBt = document.getElementById("bt");
+    oBt.onclick = function() {
+      // 元素.属性
+      alert('hello ' + oText.value);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 300px;
+				height: 800px;
+				border: 1px solid black;
+			}
+
+			#box ul {
+				margin: 0;
+				padding: 10px;
+			}
+
+			#box div {
+				width: 90px;
+				height: 30px;
+				line-height: 30px;
+				background: #000000;
+				color: white;
+				float: left;
+				margin-left: 5px;
+				margin-right: 5px;
+				text-align: center;
+			}
+
+			#box .active {
+				width: 90px;
+				height: 30px;
+				line-height: 30px;
+				background: white;
+				color: black;
+				float: left;
+				margin-left: 5px;
+				margin-right: 5px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div>点击排行</div>
+
+			<div>观看排行</div>
+
+			<div>分享排行</div>
+
+			<ul>
+				<ul>1</ul>
+				<ul>2</ul>
+				<ul>3</ul>
+				<ul>4</ul>
+				<ul>5</ul>
+				<ul>6</ul>
+				<ul>7</ul>
+				<ul>8</ul>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			var oBox = document.getElementById('box');
+			var aModule = oBox.getElementsByTagName('div');
+			for (var i = 0; i < aModule.length; i++) {
+				aModule[i].onmouseover = function() {
+					this.className = 'active';
+				}
+				aModule[i].onmouseout = function() {
+					this.className = '';
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 600px;
+				margin: 50px auto;
+			}
+			#img{
+				width:600px;
+			}
+		</style>
+		<script type="text/javascript" src="getstyle.js" ></script>
+		<script type="text/javascript">
+			$(function() {
+				var oImg = $('img');
+				var index = 1;
+				var imgName = '';
+				setInterval(function(){
+					index++;
+					if (index > 5) {
+						index = 1;
+					}
+					imgName = 'img1/img_0' + index + '.png';
+					oImg.src = imgName;
+				}, 3000);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="">
+			<img src="img1/img_01.png" id="img">
+		</div>
+		
+	</body>
+</html>

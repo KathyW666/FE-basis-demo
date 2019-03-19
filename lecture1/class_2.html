@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen" type="text/css">
+    ul {
+      width: 200px;
+      border: 1px solid gray;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <ul>
+    <li><a href="#">beijing</a></li>
+    <li><a href="#">shanghai</a></li>
+    <li><a href="#">guangzhou</a></li>
+    <li><a href="#">shenzhen</a></li>
+  </ul> -->
+  <script type="text/javascript">
+    var a = "beijing";
+    var b = "shanghai";
+
+    var list = "";
+    list = list + "<ul>";
+    list = list + "<li><a herf='#'>" + a + "</a></li>";
+    list = list + "<li><a herf='#'>" + b + "</a></li>";
+    list = list + "</ul>";
+    console.log(list);
+    document.write(list);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen" type="text/css">
+    #bt1,
+    #bt2 {
+      font-size: 30px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid gray;
+      line-height: 30px;
+      text-align: center;
+      float: left;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bt1">+</div>
+  <div id="bt2">-</div>
+  <br />
+  <br />
+  <br />
+  <p id="content">Hello</p>
+
+  <script type="text/javascript">
+    var oText = document.getElementById("content")
+    var oBt1 = document.getElementById("bt1");
+    var oBt2 = document.getElementById("bt2");
+    var size = 16;
+    oBt1.onclick = function() {
+      size++;
+      oText.style.fontSize = size + "px";
+    }
+
+    oBt2.onclick = function() {
+      size--;
+      oText.style.fontSize = size + "px";
+    }
+  </script>
+</body>
+
+</html>

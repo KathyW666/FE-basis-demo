@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 多维数组
+			var tom = ["Tom", "12345", "male"];
+			var jerry = ["Jerry", "23456", "female"];
+
+			var list = [tom, jerry];
+			var list1 = [
+				["Tom", "12345", "male"],
+				["Jerry", "23456", "female"]
+			];
+			alert(list[1][2]);
+			
+			for (index in list1) {
+				document.write(list1[index]+"<br />");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="text" id="t1">
+  <input type="text" id="t2">
+  <input type="button" id="plus" value="+">
+  <input type="button" id="minus" value="-">
+  <input type="button" id="times" value="*">
+  <input type="button" id="divide" value="/">
+
+  <script type="text/javascript">
+    var oT1 = document.getElementById('t1');
+    var oT2 = document.getElementById('t2');
+    var oB1 = document.getElementById('plus');
+    var oB2 = document.getElementById('minus');
+    var oB3 = document.getElementById('times');
+    var oB4 = document.getElementById('divide');
+
+    oB1.onclick = function() {
+      // 注意将字符串转换为数字
+      var num1 = Number(oT1.value);
+      var num2 = Number(oT2.value);
+      alert(num1 + num2);
+    }
+
+    oB2.onclick = function() {
+      // 强制类型转换
+      alert(oT1.value - oT2.value);
+    }
+
+    oB3.onclick = function() {
+      // 强制类型转换
+      alert(oT1.value * oT2.value);
+    }
+
+    oB4.onclick = function() {
+      // 强制类型转换
+      alert(oT1.value / oT2.value);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr1 = [1,2,3,4];
+			var arr2 = arr1;
+			arr2[0] = 100;		// 相同的引用
+			var arr3 = [];
+			for (id in arr1) {
+				arr3[id] = arr1[id];
+			}
+			arr3[1] = 100;
+			alert(arr1);
+			alert(arr3);
+		</script>
+	</body>
+</html>

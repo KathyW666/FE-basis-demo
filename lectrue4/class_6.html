@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.bt {
+				width: 65px;
+				height: 65px;
+				background: url(logo.jpeg);
+				float: left;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		<div class="bt"></div>
+		
+		<script type="text/javascript">
+			// 包含数组的写法
+			var oBt = document.getElementsByClassName('bt');
+			for (var i = 0; i < oBt.length; i++) {
+				oBt[i].isShow = true;
+				oBt[i].onclick = function() {
+					this.isShow = !this.isShow;
+					this.style.background = this.isShow ? 'url(logo.jpeg)' : 'url(logo2.jpeg)';
+				}
+			}
+		</script>
+	</body>
+</html>

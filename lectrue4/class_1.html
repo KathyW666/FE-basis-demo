@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="button" id="bt"/>
+		<script type="text/javascript">
+			
+			function fn() {
+				alert(this);
+			}
+			
+			var oBt = document.getElementById("bt");
+			oBt.onclick = function() {
+				alert(this);
+				fn();   // 函数调用函数,this 指向window
+			}
+		</script>
+	</body>
+</html>

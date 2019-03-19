@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			i {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background: red;
+				color: white;
+				line-height: 20px;
+				text-align: center;
+			}
+		</style>
+
+		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var aI = document.getElementsByTagName('i');
+				setInterval(function() {
+					var time = new Date();
+					var startTime = time.getTime();
+
+					// 结束时间3月31日12:0:0
+					time.setMonth(2);
+					time.setDate(31);
+					time.setHours(12);
+					time.setMinutes(0);
+					time.setSeconds(0);
+
+					var endTime = time.getTime();
+
+					var offsetTime = (endTime - startTime) / 1000;
+					var s = parseInt(offsetTime % 60);
+					var m = parseInt((offsetTime / 60) % 60);
+					var h = parseInt(offsetTime / 60 / 60);
+					aI[0].innerHTML = h;
+					aI[1].innerHTML = m;
+					aI[2].innerHTML = s;
+				}, 1000);
+			});
+		</script>
+	</head>
+	<body>
+		<!-- 应用于电商网站，购物车倒计时等功能 -->
+		<i></i>:<i></i>:<i></i>
+	</body>
+</html>

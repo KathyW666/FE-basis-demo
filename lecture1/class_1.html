@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    div {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+      }
+      #box {
+        background: red;
+      }
+      #view {
+        background: blue;
+      }
+    </style>
+</head>
+
+<body>
+  <div id="box"></div>
+
+  <div id="view"></div>
+
+  <script type="text/javascript">
+    <!-- 获取元素 -->
+    var oBox = document.getElementById("box");
+    <!-- 点击操作 -->
+    oBox.onclick = function() {
+      alert("hello");
+    }
+    var x = 20;
+    var y = 100 - x;
+    alert(y);
+    k = 100; // 隐式定义
+    document.write(23 / 10);
+  </script>
+</body>
+
+</html>

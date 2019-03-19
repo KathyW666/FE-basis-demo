@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="text" id="text" placeholder="输入成绩">
+  <input type="button" id="bt" value="等级">
+
+  <script type="text/javascript">
+    var oT = document.getElementById("text");
+    var oB = document.getElementById('bt');
+    var num = Number(oT.value);
+    oB.onclick = function() {
+      if (num > 90) {
+        alert("A");
+      } else if (num > 80) {
+        alert("B");
+      } else if (num > 70) {
+        alert("C");
+      } else {
+        alert("D");
+      }
+    }
+  </script>
+</body>
+
+</html>

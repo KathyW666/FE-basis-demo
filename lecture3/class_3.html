@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 求和函数的使用 函数的arguments属性
+			function sum() {
+				var temp = 0;
+				for (i in arguments) {
+					temp += arguments[i];
+				}
+				return temp;
+			}
+			alert(sum(1,2,2,4,5));
+			
+		</script>
+	</body>
+</html>

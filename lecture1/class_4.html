@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen" type="text/css">
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      text-align: center
+    }
+
+    #text {
+      font-size: 25px
+    }
+  </style>
+</head>
+
+<body>
+  <input id="test">
+  <br />
+  <br />
+  <br />
+
+  <div class="box">
+    <h3 id="text"> 0 </h3>
+    <input type="button" id="bt" value="click!">
+  </div>
+
+  <script type="text/javascript">
+    var oText = document.getElementById("text");
+    var oBt = document.getElementById("bt");
+    var oTest = document.getElementById("test");
+    var count = 0;
+    oBt.onclick = function() {
+      count = count + 1;
+      oText.innerHTML = count;
+      oTest.value = count;
+    }
+  </script>
+</body>
+
+</html>

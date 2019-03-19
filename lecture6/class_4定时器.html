@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var timer = null;
+				var index = 0;
+				$('bt1').onclick = function() {
+					// setInterval()定时器
+					// 函数(处理的事件), 毫秒(min:10ms), 返回值:时钟对象
+					if (timer == null) {
+						timer = setInterval(speak, 1000);
+					}
+				}
+				
+				function speak(){
+					index++;
+					console.log(index);
+				}
+				
+				$('bt2').onclick = function() {
+					clearInterval(timer);
+					timer = null;
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" id="bt1" value="begin">
+		<input type="button" id="bt2" value="end">
+	</body>
+</html>

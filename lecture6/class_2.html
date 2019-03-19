@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入js文件 -->
+		<script type="text/javascript" src="getstyle.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				getId('bt1').onclick = function() {
+					alert(getStyle(this, 'width'));
+				}
+				
+				$('bt2').onclick = function() {
+					alert(getStyle(this, 'width'));
+				}
+				// 封装getElementById
+				function getId(id) {
+					return document.getElementById(id);
+				}
+				
+				// jQuery的封装
+				function $(id) {
+					return document.getElementById(id);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" id="bt1" value="button1">
+		<input type="button" id="bt2" value="button2">
+		<input type="button" id="bt3" value="button3">
+	</body>
+</html>

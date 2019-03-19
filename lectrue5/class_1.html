@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 数组splice()的用法，删除，替换，添加 -->
+		<!-- 数组去重 -->
+		<script type="text/javascript">
+			var arr = [1,2,3,24,4,234,44,6,7];
+			for (var i = 0; i < arr.length; i++) {
+				for (var j = i+1; j < arr.length; j++) {
+					if (arr[i] == arr[j]) {
+						arr.splice(j, 1);
+						j--;
+					}	
+				}
+			}
+			var str = arr.join('-');
+			document.write(str);
+			
+			str = arr.join();
+			document.write(str);
+			
+			str = arr.join('');
+			document.write(str);
+			
+			// 以str形式进行操作
+			str = arr.sort();
+			//alert(str);
+			
+			str = arr.sort(function(a, b){
+				return a - b; // 1,2,3,4
+			})
+			//alert(str);
+			
+			var arr2 = ['1px', '20px', '10px'];
+			str = arr2.sort(function(a, b) {
+				return parseInt(a) - parseInt(b);
+			});
+			//alert(str);
+			
+			// 打乱顺序
+			var arr3 = [1,2,3,4,5,6,7];
+			str = arr3.sort(function(a, b){
+				return Math.random() - 0.5;
+			});
+			alert(str);
+			
+		</script>
+	</body>
+</html>

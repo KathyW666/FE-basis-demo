@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#box {
+				width: 800px;
+				height: 530px;
+				background: red;
+				text-align: center;
+				margin: 50px auto;
+				position: relative;
+			}
+
+			#box .title {
+				color: white;
+				line-height: 30px;
+				font-size: 20px;
+			}
+
+			#box .bigImg {
+				width: 800px;
+				height: 470px;
+				display: block;
+			}
+
+			#box .back,
+			#box .next {
+				position: absolute;
+				width: 80px;
+				height: 30px;
+				text-align: center;
+				background: red;
+				color: white;
+				line-height: 30px;
+				text-decoration: none;
+				top: 250px;
+			}
+
+			#box .back {
+				left: 0;
+			}
+
+			#box .next {
+				right: 0;
+			}
+
+			#box .page {
+				height: 30px;
+			}
+
+			#box .page i {
+				height: 30px;
+				width: 30px;
+				line-height: 30px;
+				text-align: center;
+				display: inline-block;
+				background: black;
+				color: white;
+				border-radius: 15px;
+				margin: 0 4px;
+				font-size: 20px;
+				font-style: normal;
+			}
+
+			#box .page .active {
+				background: purple;
+			}
+
+			#box .smallImg {
+				width: 140px;
+				height: 80px;
+				position: absolute;
+				bottom: 30px;
+				left: 330px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			fdsfihialdfhlidhaddif
+			<!--标题-->
+			<!--<h3 class="title"> hello world </h3>-->
+			<h3 class="title"> </h3>
+
+			<!--显示大图-->
+			<!--<img class="bigImg" src="img/Kayle_Splash_0.jpg" />-->
+			<img class="bigImg" />
+
+			<!--按钮-->
+			<a href="#" class="back">上一张</a>
+			<a href="#" class="next">下一张</a>
+
+			<!--下标-->
+			<p class="page">
+				<!--<i>1</i>
+				<i>2</i>
+				<i>3</i>-->
+			</p>
+
+			<!--小图-->
+			<!--<img class="smallImg" src="img/Kayle_Splash_0.jpg" />-->
+			<img class="smallImg" />
+
+		</div>
+
+		<script type="text/javascript">
+			var oBox = document.getElementById('box');
+			var oTitle = oBox.getElementsByTagName('h3')[0];
+			var oBigImg = oBox.getElementsByClassName('bigImg')[0];
+			var oSmallImg = oBox.getElementsByClassName('smallImg')[0];
+			var oNext = oBox.getElementsByClassName('next')[0];
+			var oBack = oBox.getElementsByClassName('back')[0];
+			var oPreview = oBox.getElementsByClassName('page')[0];
+
+			var imgArr = ['Kayle_Splash_0.jpg',
+				'Kayle_Splash_1.jpg',
+				'Kayle_Splash_2.jpg',
+				'Kayle_Splash_3.jpg',
+				'Kayle_Splash_4.jpg',
+				'Kayle_Splash_5.jpg',
+				'Kayle_Splash_6.jpg'
+			];
+			var index = 0;
+			oBigImg.src = 'img/' + imgArr[index];
+			oTitle.innerHTML = imgArr[index];
+
+			oBack.onclick = function() {
+				if (index == 0) {
+					index = imgArr.length - 1;
+				} else {
+					index--;
+				}
+				changeView();
+			}
+
+			oNext.onclick = function() {
+				if (index == imgArr.length - 1) {
+					index = 0;
+				} else {
+					index++;
+				}
+				changeView();
+			}
+
+			var str = '';
+			for (var i = 1; i <= imgArr.length; i++) {
+				if (i == 1) {
+					str += '<i class="active">' + i + '</i>';
+				} else {
+					str += '<i>' + i + '</i>';
+				}
+				oPreview.innerHTML = str;
+			}
+			
+			var aPage = oPreview.getElementsByTagName('i');
+			
+			for (var i = 0; i < aPage.length; i++) {
+				aPage[i].index = i;
+				aPage[i].onclick = function() {
+					index = this.index;
+					changeView();
+					
+				}
+				aPage[i].onmouseover = function() {
+					
+					oSmallImg.style.display = 'block';
+					oSmallImg.src = 'img/' + imgArr[this.index];
+				}
+				aPage[i].onmouseout = function() {
+					oSmallImg.style.display = '';
+				}
+			}
+			
+			// 图片的改变和page的改变关联,封装到同一个函数中
+			function changeView() {
+				oBigImg.src = 'img/' + imgArr[index];
+				oTitle.innerHTML = imgArr[index];
+				for (var i = 0; i < aPage.length; i++) {
+					aPage[i].className = '';
+				}
+				aPage[index].className = 'active';
+			}
+		</script>
+	</body>
+</html>
