@@ -7,7 +7,7 @@
 ### Lecture 1~5 JS 基本语法
 数据类型，变量，函数，作用域，数组，自定义属性,字符串操作
 
-demo：[简单点击样式转换]()，[图片切换]()，[查询替换文本]()
+demo：[简单点击样式转换]()，[图片切换]()，[查询替换文本](http://htmlpreview.github.io/?https://github.com/KathyW666/JS_demo/blob/master/lectrue5/search_replace.html)
 
 ### Lecture 6 定时器
 demo：[汤姆猫动画]()，[banner轮播]()，[倒计时]()
