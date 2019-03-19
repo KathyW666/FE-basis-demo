@@ -4,19 +4,40 @@
 		<meta charset="utf-8">
 		<title></title>
 		<style type="text/css">
-			*{
+			* {
 				margin: 0;
 				padding: 0;
 			}
+
 			img {
 				display: block;
 				border: 0;
+				animation: goin 3.1s;
+				width: 800px;
+				height: 600px;
+				object-fit: cover;
 			}
+
+			@keyframes goin {
+				0% {
+					opacity: 0;
+				}
+
+				50% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
 			#box {
-				width: 600px;
+				width: 800px;
 				margin: 50px auto;
 				position: relative;
 			}
+
 			#pageView {
 				position: absolute;
 				bottom: 10px;
@@ -25,6 +46,7 @@
 				width: 100%;
 				height: 14px;
 			}
+
 			#pageView i {
 				width: 10px;
 				height: 10px;
@@ -32,12 +54,13 @@
 				border-radius: 6px;
 				display: inline-block;
 			}
-			#pageView .active{
+
+			#pageView .active {
 				background: black;
 				border-color: black;
 			}
 		</style>
-		
+
 		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
@@ -46,62 +69,72 @@
 				var timer = null;
 				var index = 0;
 				var currentP = 0;
-				
+
 				startTimer();
-				
-				for(var i = 0; i < aPage.length; i++) {
+
+				for (var i = 0; i < aPage.length; i++) {
 					aPage[i].index = i;
 					aPage[i].onclick = function() {
 						// 关闭时钟;
 						stopTimer();
 						index = this.index;
+						img.style.animation = 'none';
+						img.style.animation = getStyle(img, 'animation');
 						// 改变样式
 						changeView();
 						// 重启时钟
 						startTimer();
 					}
 				}
-				
+
 				function startTimer() {
 					if (timer == null) {
-						timer = setInterval(upDate, 2000);
+						timer = setInterval(upDate, 3000);
 					}
 				}
-				
+
 				function upDate() {
+					img.style.animation = 'none';
+					img.style.animation = getStyle(img, 'animation');
 					index++;
 					changeView();
 				}
-				
+
 				function stopTimer() {
 					clearInterval(timer);
 					timer = null;
 				}
-				
+
 				function changeView() {
-					if (index > 4) {
+					if (index > 5) {
 						index = 0;
 					}
-					img.src = "img1/img_0"+(index+1)+".png";
+					img.src = "img3/img_0" + (index + 1) + ".jpeg";
+					goinView();
 					aPage[currentP].className = '';
 					currentP = index;
 					aPage[currentP].className = 'active';
-					
 				}
+				
+				function goinView() {
+					img.style.animation = 'goin' + ' ' + '3.1s';
+				}
+				
 			});
 		</script>
 	</head>
 	<body>
 		<div id="box">
-			<img src="img1/img_01.png" id="img">
+			<img src="img3/img_01.jpeg" id="img">
 			<p id="pageView">
 				<i class="active"></i>
 				<i></i>
 				<i></i>
 				<i></i>
 				<i></i>
+				<i></i>
 			</p>
-			
+
 		</div>
 	</body>
 </html>
