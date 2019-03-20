@@ -12,7 +12,8 @@
 			img {
 				display: block;
 				border: 0;
-				animation: goin 3.1s;
+				animation: goin 3s;
+				-webkit-animation: goin 3s;
 				width: 800px;
 				height: 600px;
 				object-fit: cover;
@@ -32,9 +33,8 @@
 				}
 			}
 
-			@-webkit-keyframes myfirst
-
-			/* Safari 和 Chrome */
+			@-webkit-keyframes goin {
+				/* Safari 和 Chrome */
 				0% {
 					opacity: 0;
 				}
@@ -133,7 +133,7 @@
 				}
 
 				function goinView() {
-					img.style.animation = 'goin' + ' ' + '3.1s';
+					img.style.animation = 'goin' + ' ' + '3s';
 				}
 
 			});
