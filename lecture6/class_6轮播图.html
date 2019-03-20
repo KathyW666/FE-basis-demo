@@ -32,6 +32,22 @@
 				}
 			}
 
+			@-webkit-keyframes myfirst
+
+			/* Safari 和 Chrome */
+				0% {
+					opacity: 0;
+				}
+				
+				50% {
+					opacity: 1;
+				}
+				
+				100% {
+					opacity: 0;
+				}
+			}
+
 			#box {
 				width: 800px;
 				margin: 50px auto;
@@ -115,11 +131,11 @@
 					currentP = index;
 					aPage[currentP].className = 'active';
 				}
-				
+
 				function goinView() {
 					img.style.animation = 'goin' + ' ' + '3.1s';
 				}
-				
+
 			});
 		</script>
 	</head>
