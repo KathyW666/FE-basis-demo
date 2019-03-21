@@ -19,8 +19,6 @@
 				object-fit: cover;
 				animation-iteration-count: 1;
 				-webkit-animation-iteration-count:1;
-				animation-delay:2s;
-				-webkit-animation-delay:2s; 
 			}
 
 			@keyframes goin {
@@ -89,6 +87,7 @@
 				var timer = null;
 				var index = 0;
 				var currentP = 0;
+				var firstTime = true;
 
 				startTimer();
 
@@ -114,8 +113,10 @@
 				}
 
 				function upDate() {
-					img.style.animation = 'none';
-					img.style.animation = getStyle(img, 'animation');
+					if (!firstTime) {
+						img.style.animation = 'none';
+						img.style.animation = getStyle(img, 'animation');
+					}
 					index++;
 					changeView();
 				}
