@@ -17,8 +17,9 @@
 				width: 800px;
 				height: 600px;
 				object-fit: cover;
+				animation-fill-mode: forwards;
 				animation-iteration-count: 1;
-				-webkit-animation-iteration-count:1;
+				-webkit-animation-iteration-count: 1;
 			}
 
 			@keyframes goin {
@@ -87,7 +88,7 @@
 				var timer = null;
 				var index = 0;
 				var currentP = 0;
-				var startP = 0;
+				//var startP = 0;
 
 				startTimer();
 
@@ -113,12 +114,12 @@
 				}
 
 				function upDate() {
-					if (startP != 0){
-						img.style.animation = 'none';
-						img.style.animation = getStyle(img, 'animation');
-					}
+// 					if (startP != 0){
+					img.style.animation = 'none';
+					img.style.animation = getStyle(img, 'animation');
+// 					}
 					index++;
-					startP++;
+// 					startP++;
 					changeView();
 				}
 
@@ -149,10 +150,10 @@
 		<div id="box">
 			<img src="img3/img_01.jpeg" id="img">
 			<img src="img3/img_02.jpeg" style="display: none">
-			<img src="img3/img_03.jpeg" style="display: none">>
-			<img src="img3/img_04.jpeg" style="display: none">>
-			<img src="img3/img_05.jpeg" style="display: none">>
-			<img src="img3/img_06.jpeg" style="display: none">>
+			<img src="img3/img_03.jpeg" style="display: none">
+			<img src="img3/img_04.jpeg" style="display: none">
+			<img src="img3/img_05.jpeg" style="display: none">
+			<img src="img3/img_06.jpeg" style="display: none">
 			<p id="pageView">
 				<i class="active"></i>
 				<i></i>
