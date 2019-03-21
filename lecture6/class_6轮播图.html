@@ -110,8 +110,6 @@
 				}
 
 				function upDate() {
-					img.style.animation = 'none';
-					img.style.animation = getStyle(img, 'animation');
 					index++;
 					changeView();
 				}
@@ -125,6 +123,8 @@
 					if (index > 5) {
 						index = 0;
 					}
+					img.style.animation = 'none';
+					img.style.animation = getStyle(img, 'animation');
 					img.src = "img3/img_0" + (index + 1) + ".jpeg";
 					goinView();
 					aPage[currentP].className = '';
