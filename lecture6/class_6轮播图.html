@@ -88,7 +88,7 @@
 				var timer = null;
 				var index = 0;
 				var currentP = 0;
-				//var startP = 0;
+				var startP = 0;
 
 				startTimer();
 
@@ -114,12 +114,12 @@
 				}
 
 				function upDate() {
-// 					if (startP != 0){
-					img.style.animation = 'none';
-					img.style.animation = getStyle(img, 'animation');
-// 					}
+					if (startP != 0){
+						img.style.animation = 'none';
+						img.style.animation = getStyle(img, 'animation');
+					}
 					index++;
-// 					startP++;
+					startP++;
 					changeView();
 				}
 
