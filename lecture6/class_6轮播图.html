@@ -87,7 +87,7 @@
 				var timer = null;
 				var index = 0;
 				var currentP = 0;
-				var firstTime = true;
+				var startP = 0;
 
 				startTimer();
 
@@ -113,12 +113,12 @@
 				}
 
 				function upDate() {
-					if (!firstTime) {
+					if (startP != 0){
 						img.style.animation = 'none';
 						img.style.animation = getStyle(img, 'animation');
 					}
-					firstTime = false;
 					index++;
+					startP++;
 					changeView();
 				}
 
@@ -131,8 +131,8 @@
 					if (index > 5) {
 						index = 0;
 					}
-					img.src = "img3/img_0" + (index + 1) + ".jpeg";
 					goinView();
+					img.src = "img3/img_0" + (index + 1) + ".jpeg";
 					aPage[currentP].className = '';
 					currentP = index;
 					aPage[currentP].className = 'active';
