@@ -12,11 +12,14 @@
 			img {
 				display: block;
 				border: 0;
-				animation: goin 3s;
-				-webkit-animation: goin 3s;
+				animation: goin 4s;
+				-webkit-animation: goin 4s;
 				width: 800px;
 				height: 600px;
 				object-fit: cover;
+				animation-fill-mode: forwards;
+				animation-iteration-count: 1;
+				-webkit-animation-iteration-count: 1;
 			}
 
 			@keyframes goin {
@@ -34,15 +37,16 @@
 			}
 
 			@-webkit-keyframes goin {
+
 				/* Safari 和 Chrome */
 				0% {
 					opacity: 0;
 				}
-				
+
 				50% {
 					opacity: 1;
 				}
-				
+
 				100% {
 					opacity: 0;
 				}
@@ -105,7 +109,7 @@
 
 				function startTimer() {
 					if (timer == null) {
-						timer = setInterval(upDate, 3000);
+						timer = setInterval(upDate, 4000);
 					}
 				}
 
@@ -125,15 +129,15 @@
 					if (index > 5) {
 						index = 0;
 					}
-					img.src = "img3/img_0" + (index + 1) + ".jpeg";
 					goinView();
+					img.src = "img3/img_0" + (index + 1) + ".jpeg";
 					aPage[currentP].className = '';
 					currentP = index;
 					aPage[currentP].className = 'active';
 				}
 
 				function goinView() {
-					img.style.animation = 'goin' + ' ' + '3s';
+					img.style.animation = 'goin' + ' ' + '4s';
 				}
 
 			});
@@ -142,6 +146,11 @@
 	<body>
 		<div id="box">
 			<img src="img3/img_01.jpeg" id="img">
+			<img src="img3/img_02.jpeg" style="display: none">
+			<img src="img3/img_03.jpeg" style="display: none">
+			<img src="img3/img_04.jpeg" style="display: none">
+			<img src="img3/img_05.jpeg" style="display: none">
+			<img src="img3/img_06.jpeg" style="display: none">
 			<p id="pageView">
 				<i class="active"></i>
 				<i></i>
