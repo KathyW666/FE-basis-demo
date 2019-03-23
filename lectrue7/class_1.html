@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var aList = getElementByClassName(document, 'section', 'li');
+				for (var i = 0; i < aList.length; i++) {
+					aList[i].style.color = 'red';
+				}
+				
+				function getElementByClassName(object, className, tagName) {
+					var aList = object.getElementsByTagName(tagName);
+					var ans = [];
+					for (var i = 0; i < aList.length; i++) {
+						var aClassName = aList[i].className.split(' ');
+						for (var j = 0; j < aClassName.length; j++) {
+							if (aClassName[j] == className) {
+								ans.push(aList[i]);
+								break;
+							}
+						}
+					}
+					return ans;
+				}
+				
+				// 封装
+				
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li class="section section1 section section">1. Hello</li>
+			<li class="section section2">2. Hello</li>
+			<li class="section section3 center">3. Hello</li>
+			<li class="clearfix section">4. Hello</li>
+			<li class="section4">5. Hello</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				width: 400px;
+				height: 30px;
+				margin: 30px auto;
+				background: darkgray;
+			}
+
+			li {
+				list-style: none;
+				float: left;
+				width: 100px;
+				line-height: 30px;
+				text-align: center;
+			}
+
+			li a {
+				text-decoration: none;
+				color: white;
+				display: block;
+			}
+
+			.active {
+				background: dimgray;
+			}
+
+			li .content {
+				background: dimgray;
+				display: none;
+			}
+			
+			.on {
+				color: darkred;
+			}
+		</style>
+
+		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var aLi = document.getElementsByTagName('li');
+				var currentContent = null;
+
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].onmouseover = function() {
+						this.className = 'active';
+						currentContent = this.getElementsByClassName('content')[0];
+						currentContent.style.display = 'block';
+						var aContent = this.getElementsByTagName('a');
+						var currentSubContent = null;
+						for (var j = 0; j < aContent.length; j++) {
+							aContent[j].onmouseover = function() {
+								this.className = 'on';
+							}
+							aContent[j].onmouseout = function() {
+								this.className = '';
+							}
+						}
+					}
+					
+					aLi[i].onmouseout = function() {
+						this.className = '';
+						currentContent.style.display = '';
+					}
+				}
+				
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="#" class="title">首页</a>
+				<div class="content">
+					<a href="#">首页1</a>
+					<a href="#">首页2</a>
+					<a href="#">首页3</a>
+					<a href="#">首页4</a>
+					<a href="#">首页5</a>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="title">视觉</a>
+				<div class="content">
+					<a href="#">视觉1</a>
+					<a href="#">视觉2</a>
+					<a href="#">视觉3</a>
+					<a href="#">视觉4</a>
+					<a href="#">视觉5</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="#" class="title">科研</a>
+				<div class="content">
+					<a href="#">科研1</a>
+					<a href="#">科研2</a>
+					<a href="#">科研3</a>
+					<a href="#">科研4</a>
+					<a href="#">科研5</a>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="title">code</a>
+				<div class="content">
+					<a href="#">code1</a>
+					<a href="#">code2</a>
+					<a href="#">code3</a>
+					<a href="#">code4</a>
+					<a href="#">code5</a>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>
