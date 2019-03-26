@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 320px;
+				height: 568px;
+				border: 1px solid gray;
+				overflow: auto;
+			}
+
+			.section {
+				width: 310px;
+				margin: 5px;
+				border-bottom: 1px solid gray;
+			}
+
+			.section a {
+				text-decoration: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oBox = document.getElementById('box');
+				var oSection = null;
+				var oName = null;
+				var oHead = null;
+				var oContent = null;
+				var oText = null;
+				
+				// advertisement
+				var oAd = null;
+				
+				for (let i = 0; i < 10; i++) {
+					if (i == 3) {
+						oAd = document.createElement('div');
+						oAd.className = 'section';
+						oBox.appendChild(oAd);
+						
+						oName = document.createElement('a');
+						oName.href = '#';
+						oAd.appendChild(oName);
+						
+						oText = document.createTextNode('《元气骑士》')
+						oName.appendChild(oText);
+						
+						
+						oContent = document.createElement('p');
+						oContent.innerHTML = '《元气骑士》是一款复古像素风rougelike游戏';
+						oAd.appendChild(oContent);
+					}
+					oSection = document.createElement('div');
+					oSection.className = 'section';
+					oBox.appendChild(oSection);
+					
+					oName = document.createElement('a');
+					oName.href = '#';
+					oSection.appendChild(oName);
+					
+					oHead = document.createElement('img');
+					oHead.src = 'img/icon_0' + i + '.png';
+					oName.appendChild(oHead);
+					
+					oText = document.createTextNode((i+1)+'App');
+					oName.appendChild(oText);
+					
+					oContent = document.createElement('p');
+					oContent.innerHTML = '《只狼》3月22日发售，玩家普遍表示很难';
+					oSection.appendChild(oContent);
+				}
+				
+				setTimeout(function() {
+					oBox.removeChild(oAd);
+				}, 5000);
+			}
+
+		</script>
+	</head>
+	<body>
+		<div id="box">
+
+			<!-- <div class="section"> -->
+				<!-- <a href="#">
+					<img src="img/icon_00.png" />
+					酷跑
+				</a>
+				<p>
+					小程序带动就业 104 万 / 马化腾回应「腾讯没有梦想」实为 P 图
+				</p> -->
+			<!-- </div> -->
+
+		</div>
+	</body>
+</html>

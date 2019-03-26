@@ -6,15 +6,43 @@
 	</head>
 	<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		$(function(){
+		$(function() {
 			var oBox = $('box');
-			console.log();
+			var node = oBox.childNodes;
+
+			for (var i = 0; i < node.length; i++) {
+				// console.log(node[i].nodeName.toLowerCase());
+				// 注意大小写问题
+				// console.log(node[i].nodeValue);
+				// console.log(node[i].innerHTML);
+				if (node[i].nodeName.toLowerCase() == 'a') {
+					node[i].innerHTML = '<h1>link</h1>';
+				}
+			}
+
+			var oView = $('view');
+			for (name in oView.attributes) {
+				console.log(name);
+			}
+			console.log(oView.attributes['id'].nodeValue);
+			// console.log(oView.firstChild.nodeName);
+			// console.log(oView.lastChild.nodeName);
+			// console.log(oView.parentNode.nodeName);
+			// console.log(oView.firstChild.nextSibling.nodeName);
+			// console.log(oView.lastChild.previousSibling.nodeName);
+
+
+
 		});
-		
 	</script>
 	<body>
 		<div id="box">
-			hello world
+			<a href="#"></a>
+			<span>hello world</span>
+		</div>
+
+		<div id="view" class='section'>
+			<p>monday</p><a href="#">baidu</a><span>march</span>
 		</div>
 	</body>
 </html>

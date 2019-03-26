@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function A(a) {
+				this.varA = a;
+			}
+
+			// 以上函数 A 的定义中，既然 A.prototype.varA 总是会被 this.varA 遮蔽，
+			// 那么将 varA 加入到原型（prototype）中的目的是什么？
+			A.prototype = {
+				varA: null,
+				/*
+				既然它没有任何作用，干嘛不将 varA 从原型（prototype）去掉 ? 
+				也许作为一种在隐藏类中优化分配空间的考虑 ?
+				https://developers.google.com/speed/articles/optimizing-javascript 
+				如果varA并不是在每个实例中都被初始化，那这样做将是有效果的。
+				*/
+				doSomething: function() {
+					console.log(arguments);
+				}
+			}
+
+			function B(a, b) {
+				A.call(this, a);
+				this.varB = b;
+			}
+			B.prototype = Object.create(A.prototype, {
+				varB: {
+					value: null,
+					enumerable: true,
+					configurable: true,
+					writable: true
+				},
+				doSomething: {
+					value: function() { // override
+						A.prototype.doSomething.apply(this, arguments);
+						// call super
+						// ...
+					},
+					enumerable: true,
+					configurable: true,
+					writable: true
+				}
+			});
+			B.prototype.constructor = B;
+
+			// 创建对象实例a
+			var a = new A();
+			console.log(a.varA); // undefined
+			console.log(A.prototype.varA); // null
+			console.log(A.varA); // undefined
+			console.log(a.doSomething('A', 'a')); // "["A", "a"]"
+			console.log(a.doSomething);		// function() { console.log(arguments);}
+
+			// 创建对象实例b
+			var b = new B(1, 2);
+
+			//继承b
+			var c = Object.create(b);
+			c.varC = 'niceC';
+			console.log(c.varA);	// 1 c继承b, b继承a
+			console.log(c.varB);	// 2
+			console.log(c.varC);	// 自有属性
+			console.log(c.hasOwnProperty('doSomething'));	// false 不是实例c的属性，在原型链中
+			Object.getPrototypeOf(c).doSomething('niceC', 1, 2); 	// "["niceC", 1, 2]"
+
+			c.varB = 12;
+			console.log(c.varB);	// 12 覆盖
+			console.log(b.varB);	// 2
+			console.log(a.varB);	// a没有varB
+
+			// 用于类中的原型调用
+			B.prototype.doSomething(1, 2, 3, 4);	// "[1, 2, 3, 4]"
+
+			// 用于实例中的原型调用, 会遍历实例的原型链
+			Object.getPrototypeOf(b).doSomething('good', 1, 2)	//// "['good', 1, 2]"
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
