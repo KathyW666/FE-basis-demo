@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				height: 1000px;
+			}
+			#view {
+				width: 200px;
+				height: 200px;
+				background: red;
+				border: 5px solid black;
+				padding: 10px;
+				overflow: auto;
+				position: absolute;
+				top: 100px;
+				left: 50px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			// 窗口 & 文档大小
+// 			var i = 0;
+// 			window.onresize = function() {
+// 				document.title = i++;
+// 			}
+// 			window.onscroll = function() {
+// 				document.title = i++;
+// 			}
+// 			alert(typeof undefined)
+// 			// 获取窗口尺寸大小
+// 			console.log(document.documentElement.clientWidth);
+// 			console.log(document.documentElement.clientHeight);		
+			window.onload = function() {
+				var oView = document.getElementById('view');
+				document.onclick = function() {
+					// 内联样式
+					// oView.style.width;
+					
+					// 计算获取元素大小
+					var height = window.getComputedStyle ? getComputedStyle(oView).height : 
+					oView.currentStyle.height;
+					
+					// 元素可视化区域 width+padding 1
+					// alert(oView.clientWidth);
+					
+					// 元素占位/实际大小 width+padding+border 2
+					// alert(oView.offsetWidth);
+					
+					// 滚动内容大小 
+					// alert(oView.scrollHeight);
+					
+					// 左边距 3 ,右边距 1-2-3
+					// alert(oView.clientLeft);
+					
+					// 相对父元素的位置
+					// alert(oView.offsetTop);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="view">
+			hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			 hellohellohellohello
+			 hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			  hellohellohellohello
+			  hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellovhellohellohellohellohellohellohello
+			   hellohellohellohello
+		</div>
+	</body>
+</html>

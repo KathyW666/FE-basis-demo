@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#view1{
+				width: 300px;
+				height: 300px;
+				background: indianred;
+			}
+			#view2{
+				width: 200px;
+				height: 200px;
+				background: royalblue;
+			}
+			#view3{
+				width: 100px;
+				height: 100px;
+				background: mediumpurple;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function() {
+				var oView1 = document.getElementById('view1');
+				var oView2 = document.getElementById('view2');
+				var oView3 = document.getElementById('view3');
+
+				// 冒泡：点击view3, view2, view1
+				// 依次传递到父级
+				oView3.onclick = function(ev) {
+					// 阻止事件冒泡
+					// 兼容性写法
+					ev.stopPropagation ? ev.stopPropagation() : ev.cancelBubble = true;
+				}
+				oView2.onclick = function() {
+					alert(2);
+				}
+				oView1.onclick = function() {
+					alert(1);
+				}
+				document.onclick = function() {
+					alert('d');
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="view1">
+			<div id="view2">
+				<div id="view3">					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

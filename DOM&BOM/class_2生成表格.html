@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			table {
+				width: 80%;
+				height: 400px;
+				border: 1px solid gray;
+				border-collapse: collapse;
+				text-align: center;
+			}
+
+			table td {
+				border: 1px solid gray;
+			}
+		</style>
+		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				let oRow = $('row');
+				let oCol = $('col');
+				let oBt = $('bt');
+				
+				oBt.onclick = function() {
+					let _row = oRow.value;
+					let _col = oCol.value;
+					
+					let _table = document.createElement('table');
+					document.body.appendChild(_table);
+					for (let i = 0; i < _row; i++) {
+						let _tr = document.createElement('tr');
+						_table.appendChild(_tr);
+						
+						if ((i+1) % 2 == 0) {
+							_tr.style.background = 'seagreen';
+							_tr.style.color = 'papayawhip';
+						}
+						
+						for (let j = 0; j < _col; j++) {
+							let _td = document.createElement('td');
+							_td.innerHTML = (i+1) + '-' + (j+1);
+							_tr.appendChild(_td);		
+						}
+						
+						let _deleteTd = document.createElement('td');
+						let _deletBt = document.createElement('input');
+						_deletBt.value = 'delete';
+						_deletBt.type = 'button';
+						_deleteTd.appendChild(_deletBt);
+						_tr.appendChild(_deleteTd);
+						
+						_deletBt.onclick = function() {
+							// 父节点的应用
+							_table.removeChild(this.parentNode.parentNode);
+						}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		行: <input type="text" id="row" placeholder="行" /><br />
+		列: <input type="text" id="col" placeholder="列" /><br />
+		<input type="button" id="bt" value="生成" />
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var dt = new Date();
+			console.log(formateDate(dt));
+			function formateDate(dt) {
+				if (!dt) {
+					dt = new Date();
+				}
+				var year = dt.getFullYear();
+				var month = dt.getMonth()+1;
+				var date = dt.getDate();
+				
+				if (month < 10) {
+					month = '0' + month;
+				}
+				
+				if (date < 10) {
+					month = '0' + month;
+				}
+				
+				return year + '-' + month + '-' + date;
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

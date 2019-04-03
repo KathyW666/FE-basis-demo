@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		// 方法1: 设置自定义属性, 调用this完成
+		// 创建10个a标签,点击时alert对应序号
+		// 		window.onload = function() {	
+		// 			for (var i = 0; i < 10; i++) {
+		// 				var a = document.createElement('a');
+		// 				a.index = i;
+		// 				a.innerHTML = i + "<br>";
+		// 				a.onclick = function() {
+		// 					alert(this.index);
+		// 				}
+		// 				document.body.appendChild(a);
+		// 			}
+		// 		}
+		
+		// 方法2: 自执行函数, lock索引完成闭包
+		window.onload = function() {
+			for (var i = 0; i < 10; i++) {
+				(function(i) {
+					var a = document.createElement('a');
+					a.innerHTML = i + '<br>';
+					a.addEventListener('click', function() {
+						alert(i);
+					});
+					document.body.appendChild(a);
+				}(i));
+			}
+		}
+	</script>
+	<body>
+
+	</body>
+</html>

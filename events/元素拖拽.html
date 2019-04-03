@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin: auto;				
+			}
+		</style>
+		<script type="text/javascript">
+			// 常用鼠标事件: 按下, 弹起, 点击, 双击, 移入移出, 移动, 焦点,失焦
+			window.onload = function() {
+				var oBox = document.getElementById('box');
+				oBox.onmousedown = function() {
+					// 鼠标的范围是整个窗口, 因此在document中添加事件
+					document.onmousemove = function(ev) {
+						ev = ev || event;
+						oBox.style.left = ev.clientX - 50 + 'px' ;
+						oBox.style.top = ev.clientY - 50 + 'px';
+					}
+					document.onmouseup = function() {
+						document.onmousemove = null;
+					}
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="box">
+
+		</div>
+	</body>
+</html>

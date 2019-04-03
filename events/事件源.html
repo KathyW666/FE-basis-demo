@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#view {
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+
+			#test {
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+		<script type="text/javascript">
+			// note: 出发事件的节点,关于事件冒泡 & 捕获
+			// 注意事件的兼容性写法
+			window.onload = function() {
+				var oView = document.getElementById('view');
+				var oTest = document.getElementById('test');
+				// 事件触发时, 会将事件所有相关信息保存到event对象中
+				oView.onclick = function(ev) {
+					ev = ev || event;
+					// alert(1);	// 点击red blue都可触发该事件
+					
+					// IE: 只有srcElement属性
+					// Firefox: 只有target属性
+					// chrome/safari: 两个属性都有
+					
+					// 事件信息中包含事件源
+					var self = ev.target || ev.srcElement;
+					alert(self.id); // 点击触发事件源
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="view">
+			<div id="test">
+
+			</div>
+		</div>
+	</body>
+</html>

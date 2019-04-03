@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 能遍历对象和数组的forEach函数
+			var arr = [1, 2, 3];
+			forEach(arr, function(item, index) {
+				console.log(item, index);
+			});
+			var obj = {
+				x: 100,
+				y: 100
+			}
+			forEach(obj, function(key, value) {
+				console.log(key, value);
+			});
+			
+			function forEach(obj, fn) {
+				var key;
+				if (obj instanceof Array) {
+					obj.forEach(function(item, index){
+						fn(index, item);
+					})
+				} else {
+					for (key in obj) {
+						fn(key, obj[key]);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
