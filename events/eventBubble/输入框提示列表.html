@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#search{
+				width: 150px;
+				margin: 30px auto;
+			}
+			input{
+				width: 150px;
+				border: 1px solid gray;
+			}
+			ul{
+				width: 150px;
+				list-style: none;
+				border: 1px solid gray;
+				border-top: none;
+				display: none;
+			}
+			li{
+				width: 140px;
+				height: 30px;
+				line-height: 30px;
+				padding-left: 10px;
+			}
+			.active{
+				background: gray;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="search">
+			<input type="text" id="text" src="" placeholder="我想找..."/>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				var oInput = document.getElementById('text');
+				var aLi = document.getElementsByTagName('li');
+				var oUl = document.getElementsByTagName('ul')[0];
+				
+				oInput.onfocus = function(){
+					oUl.style.display = 'block';
+				}
+				oInput.onblur = function() {
+					// 若不设setTimeout，在下拉菜单点击之前触发失焦
+					// 影响li的点击,
+					setTimeout(function(){
+						oUl.style.display = 'none';
+					}, 200);				
+				}
+				// 点击事件
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].onmouseover = function() {
+						this.className = "active";
+						oInput.placeholder = this.innerHTML;
+					}
+					aLi[i].onmouseout = function() {
+						this.className = "none";
+					}
+					// 常规方法
+// 					aLi[i].onclick = function(){
+// 						oInput.value = this.innerHTML;						
+// 					}
+ 				}
+				
+				
+				// 方法二: 时间冒泡
+				// 每个li点击之后,时间冒泡到 >>> ul
+				oUl.onclick = function(ev) {
+					ev = event || ev;
+					var self = ev.target || ev.srcElement;
+					self.className = "active";
+					oInput.value = self.innerHTML;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

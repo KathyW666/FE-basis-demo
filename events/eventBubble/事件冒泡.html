@@ -28,11 +28,15 @@
 				var oView3 = document.getElementById('view3');
 
 				// 冒泡：点击view3, view2, view1
+				// 从最具体的元素接收, 逐级向上传递
 				// 依次传递到父级
+				// 事件捕获: 一波反向操作
+				// DOM 事件流 事件捕获->目标阶段->事件冒泡
 				oView3.onclick = function(ev) {
 					// 阻止事件冒泡
-					// 兼容性写法
+					// 兼容性写法 IE: cancelBubble
 					ev.stopPropagation ? ev.stopPropagation() : ev.cancelBubble = true;
+					alert(3);
 				}
 				oView2.onclick = function() {
 					alert(2);

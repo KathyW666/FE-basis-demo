@@ -20,6 +20,7 @@
 					// 鼠标的范围是整个窗口, 因此在document中添加事件
 					document.onmousemove = function(ev) {
 						ev = ev || event;
+						
 						oBox.style.left = ev.clientX - 50 + 'px' ;
 						oBox.style.top = ev.clientY - 50 + 'px';
 					}
