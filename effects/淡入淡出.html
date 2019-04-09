@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				width: 700px;
+				opacity: 0.3;
+				filter: alpha(opacity=30);
+				/* 兼容性写法:兼容IE8及以下 */
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oImg = document.getElementsByTagName('img')[0];
+				var alpha = 30;
+				var timer = null;
+
+				oImg.onmouseover = function() {
+					moveTo(100);
+				}
+
+				oImg.onmouseout = function() {
+					moveTo(30);
+				}
+
+				function moveTo(target) {
+					clearInterval(timer);
+					var speed = 10;
+					speed = alpha > target ? -speed : speed;
+					timer = setInterval(function() {
+						if (alpha != target) {
+							alpha = alpha + speed;
+							oImg.style.opacity = alpha / 100;
+							oImg.style.filter = "alpha(opacity=" + alpha + ")";
+						} else {
+							clearInterval(timer);
+						}
+					}, 50)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/Akali_Splash_0.jpg" />
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#view1 {
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+
+			#view2 {
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}
+
+			#view3 {
+				width: 100px;
+				height: 100px;
+				background: purple;
+			}
+
+			#view4 {
+				width: 50px;
+				height: 50px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="view1">
+			<div id="view2">
+				<div id="view3">
+					<div id="view4">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				var oView1 = document.getElementById('view1');
+				var oView2 = document.getElementById('view2');
+				var oView3 = document.getElementById('view3');
+				var oView4 = document.getElementById('view4');
+
+				// addEventListener参数：true 捕获, false 冒泡
+				oView1.addEventListener('click', function() {
+					alert("view1-捕获")
+				}, true);
+				oView2.addEventListener('click', function() {
+					alert("view2-捕获")
+				}, true);
+				oView3.addEventListener('click', function() {
+					alert("view3-捕获")
+				}, true);
+				oView4.addEventListener('click', function() {
+					alert("view4-捕获")
+				}, true);
+
+				// oView1.onclick = function(){} 是冒泡
+				oView1.addEventListener('click', function() {
+					alert("view1-冒泡")
+				});
+				oView2.addEventListener('click', function() {
+					alert("view2-冒泡")
+				});
+				oView3.addEventListener('click', function() {
+					alert("view3-冒泡")
+				});
+				oView4.addEventListener('click', function() {
+					alert("view4-冒泡")
+				});
+
+				// 事件取消: 两种方式
+				oView4.removeEventListener('click');
+				oView4.onclick = null;
+
+			}
+		</script>
+	</body>
+</html>

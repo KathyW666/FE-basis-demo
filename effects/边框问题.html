@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 80px;
+				background: red;
+				
+				/* 问题*/
+				border: 1px solid gray;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				let oBox = document.getElementById('box');
+				
+				var timer = null;
+				
+				oBox.onmouseover = function() {
+					timer = setInterval(function(){
+						// 注意 offsetWidth 为可视宽度
+						// width-1 后, 可视宽度还要加上2px的border
+						// 因此下列写法会使box变大 而非变小
+						// oBox.style.width = oBox.offsetWidth - 1 + 'px';
+						// 因此需取得css中设定的width
+						// 注意offset***的使用,
+						// 多数情况要利用封装函数, 取得内联样式
+						oBox.style.width = getStyle(oBox, 'width')-1+'px';
+					},100);			
+				}
+				
+				oBox.onmouseout = function(){
+					clearInterval(timer);
+				}
+				
+				function getStyle(obj, att) {
+					// 注意内联样式返回px
+					return parseInt(window.getComputedStyle ? getComputedStyle(obj)[att] : obj.currentStyle[att]);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

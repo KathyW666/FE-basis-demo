@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				background: black;
+			}
+
+			#box {
+				width: 200px;
+				border: 1px solid wheat;
+				color: wheat;
+				margin: 40px auto;
+			}
+
+			h3 {
+				line-height: 40px;
+			}
+
+			ul {
+				display: none;
+			}
+
+			li {
+				list-style: none;
+				border-top: 1px dashed wheat;
+				line-height: 30px;
+				padding-left: 10px;
+			}
+
+			.active {
+				background: dimgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h3>大话西游</h3>
+			<ul>
+				<li> 魔兽世界(国服) </li>
+				<li> 热血江湖 </li>
+				<li> 梦幻西游 </li>
+				<li> 大话西游 </li>
+				<li> 传奇 </li>
+				<li> 奇迹 </li>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			// 通过时间冒泡,避免对每一个li进行操作,对ul操作即可
+			// 减少事件的绑定量,优化性能
+			window.onload = function() {
+				var oTitle = document.getElementsByTagName('h3')[0];
+				var oContent = document.getElementsByTagName("ul")[0];
+				var isShow = false;
+				var currentLi = null;  // 记录鼠标移出前的li
+				oTitle.onclick = function(ev) {
+					isShow = !isShow;
+					oContent.style.display = isShow ? 'block' : 'none';
+
+					// 阻止事件冒泡, 点title不返回
+					ev = event || ev;
+					ev.stopPropagation ? ev.stopPropagation() : ev.cancelBubble = true;
+				}
+				oContent.onclick = function(ev) {
+					ev = event || ev;
+					var self = ev.target || ev.srcElement;
+					if (self.tagName.toLocaleLowerCase() == 'li') {
+						oTitle.innerHTML = self.innerHTML;
+					}
+				}
+				oContent.onmousemove = function(ev) {
+					ev = event || ev;
+					var self = ev.target || ev.srcElement;
+					if (self.tagName.toLocaleLowerCase() == 'li') {
+						if (currentLi != null) {
+							currentLi.className = '';
+						}
+						currentLi = self;
+						currentLi.className = 'active';
+					}
+				}
+				document.onclick = function() {
+					isShow = false;
+					oContent.style.display = 'none';
+				}
+			}
+		</script>
+	</body>
+</html>

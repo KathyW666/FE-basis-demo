@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 实现效果：滑入（匀速运动），页面居中 -->
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#blank {
+				height: 10000px;
+				width: 100%;
+				background: darkseagreen;
+			}
+
+			#content {
+				width: 70px;
+				height: 120px;
+				background: red;
+				position: absolute;
+				top: 300px;
+				text-align: center;
+				left: -70px;
+			}
+
+			#content a {
+				color: white;
+				text-decoration: none;
+				display: block;
+				line-height: 30px;
+			}
+
+			#title {
+				width: 30px;
+				height: 70px;
+				background: black;
+				color: white;
+				position: absolute;
+				left: 70px;
+				top: 25px;
+				text-align: center;
+				/* left: 0; */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<a href="#">微信</a>
+			<a href="#">QQ</a>
+			<a href="#">微博</a>
+			<a href="#">facebook</a>
+			<div id="title">
+				分享到
+			</div>
+		</div>
+		<div id="blank">
+
+		</div>
+
+		<!-- <div id="title">
+			分享到
+		</div> -->
+		<script type="text/javascript">
+			window.onload = function() {
+				var oContent = document.getElementById('content');
+				var oTitle = document.getElementById("title");
+				var timer = null;
+				// 问题: 出现抖动
+				// 当title<div>与content为同级别元素时
+				// 				oTitle.onmousemove = function() {
+				// 					oContent.style.left = 0;
+				// 					this.style.left = '70px';
+				// 				}
+
+				// 问题: content显示之后再次触发鼠标移出,
+				// 				oTitle.onmouseout = function() {
+				// 					oContent.style.left = '-70px';
+				// 					this.style.left = "0";
+				// 				}
+
+				// 				oContent.onmouseout = function() {
+				// 					oContent.style.left = '-70px';
+				// 					oTitle.style.left = "0";
+				// 				}
+				// 对oTitle的操作,改为对oContent的操作
+				oContent.onmouseover = function() {
+					moveTo(0);
+					//this.style.left = '0';
+				}
+				oContent.onmouseout = function() {
+					moveTo(-70);
+					//this.style.left = '-70px';
+				}
+
+				function moveTo(target) {
+					// 不要定义新的timer, 这样有问题，之前timer没有停止
+					// 在最头部定义一个时钟即可
+					var speed = 10;
+					if (oContent.offsetLeft > target) {
+						speed = -speed;
+					} else {
+						speed = speed;
+					}
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if (oContent.offsetLeft != target) {
+							oContent.style.left = oContent.offsetLeft + speed + 'px';
+						} else {
+							clearInterval(timer);
+						}
+					}, 50);
+				}
+			}
+
+			var timer = null;
+			// 监听滚动效果
+			window.onscroll = function() {
+				// 居中位置:（窗口大小-元素大小)/2
+				var oContent = document.getElementById('content');
+				var screenH = document.documentElement.clientHeight || document.body.clientHeight;
+				var top = (screenH - oContent.offsetHeight) / 2;
+
+				// 滑动条位置兼容性写法
+				var offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
+				// oContent.style.top = top + offsetTop + "px";
+				var target = top + offsetTop;
+
+				// 如果target是小数,也可能存在永远达不到的情况
+				scrollTo(oContent, parseInt(target));
+
+				function scrollTo(obj, target) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						var speed = (target - obj.offsetTop) / 7;
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+						if (obj.offsetTop != target) {
+							obj.style.top = obj.offsetTop + speed + "px";
+						} else {
+							clearInterval(timer);
+						}
+					}, 30)
+				}
+			}
+			// 可能出现的问题: 如果两个事件window.onload 和 滚动条事件
+			// 使用同一个时钟会出现: content还未滚动到居中
+		</script>
+	</body>
+</html>

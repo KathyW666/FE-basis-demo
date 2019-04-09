@@ -16,16 +16,21 @@
 			// 常用鼠标事件: 按下, 弹起, 点击, 双击, 移入移出, 移动, 焦点,失焦
 			window.onload = function() {
 				var oBox = document.getElementById('box');
-				oBox.onmousedown = function() {
+				oBox.onmousedown = function(ev) {
+					ev = ev || event;
+					var dowX = ev.offsetX;
+					var dowY = ev.offsetY;
 					// 鼠标的范围是整个窗口, 因此在document中添加事件
 					document.onmousemove = function(ev) {
-						ev = ev || event;
-						
-						oBox.style.left = ev.clientX - 50 + 'px' ;
-						oBox.style.top = ev.clientY - 50 + 'px';
+						// 保存鼠标相对于元素的位置
+						// ev.clientX 鼠标对于浏览器左边的位置
+						ev = ev || event;					
+						oBox.style.left = ev.clientX - dowX + 'px' ;
+						oBox.style.top = ev.clientY - dowY + 'px';
 					}
 					document.onmouseup = function() {
 						document.onmousemove = null;
+						document.onmouseup = null;
 					}
 				}
 			}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 50px;
+			}
+
+			#box2 {
+				width: 100px;
+				height: 100px;
+				background: purple;
+				position: absolute;
+				left: 600px;
+				top: 180px;
+			}
+
+			#line {
+				width: 1px;
+				height: 300px;
+				background: black;
+				position: absolute;
+				top: 0;
+				left: 300px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				let oBox1 = document.getElementById('box1');
+				let oBox2 = document.getElementById('box2');
+				let oLine = document.getElementById('line');
+				var timer = null;
+				var target = oLine.offsetLeft;
+
+				oBox1.onclick = function() {
+					startMove(this, target);
+				}
+
+				oBox2.onclick = function() {
+					startMove(this, target-this.offsetWidth);
+				}
+
+				function startMove(obj, target) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						var speed = 7;
+						speed = obj.offsetLeft < target ? speed : -speed;
+						// 若不进行处理, 对象无法达到target, 在line两边徘徊
+						// 当距离小于speed时, 直接设置=target
+						if (Math.abs(target - obj.offsetLeft) < Math.abs(speed)) {
+							obj.style.left = target + 'px'; 
+							clearInterval(timer);
+						} else {
+							obj.style.left = obj.offsetLeft + speed + 'px';
+						}
+					}, 50)
+
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="line"></div>
+		<div id="box2"></div>
+	</body>
+</html>
