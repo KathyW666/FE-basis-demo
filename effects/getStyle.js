@@ -1,4 +1,4 @@
-function getStyle(object, att) {
+function getstyle(object, att) {
 	return window.getComputedStyle ? getComputedStyle(object)[att] : object.currentStyle[att];
 }
 

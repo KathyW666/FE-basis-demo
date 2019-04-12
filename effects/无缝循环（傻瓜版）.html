@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid gray;
+      margin: 30px auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #box img {
+      width: 320px;
+      height: 480px;
+      margin: 10px;
+    }
+
+    #box ul {
+      width: 2040px;
+      height: 480px;
+      position: absolute;
+    }
+
+    li {
+      list-style: none;
+      float: left;
+      display: block;
+    }
+  </style>
+
+  <script type="text/javascript">
+    window.onload = function() {
+      var oBox = document.getElementById('box');
+      var oUl = document.getElementsByTagName('ul')[0];
+      var timer = null;
+
+      oUl.innerHTML += oUl.innerHTML;
+      console.log(oUl);
+
+      // 2倍的图片宽度，当一轮循环结束之后，返回 0
+      oUl.style.width = oUl.offsetWidth * 2 + 'px';
+
+      startTimer();
+
+      oBox.onmouseover = function() {
+        stopTimer();
+      }
+
+      oBox.onmouseout = function() {
+        startTimer();
+      }
+
+      function startTimer() {
+        if (timer == null) {
+          timer = setInterval(scroll, 20);
+        }
+      }
+
+      function stopTimer() {
+        clearInterval(timer);
+        timer = null;
+      }
+
+      function scroll() {
+        oUl.style.left = oUl.offsetLeft - 3 + 'px';
+        if (oUl.offsetLeft <= -oUl.offsetWidth / 2) {
+          oUl.style.left = 0;
+        }
+
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="box">
+    <ul>
+      <li><img src="img/3_1.jpg"></li>
+      <li><img src="img/3_2.jpg"></li>
+      <li><img src="img/3_3.jpg"></li>
+      <li><img src="img/3_4.jpg"></li>
+      <li><img src="img/3_5.jpg"></li>
+      <li><img src="img/3_6.jpg"></li>
+    </ul>
+  </div>
+</body>
+
+</html>

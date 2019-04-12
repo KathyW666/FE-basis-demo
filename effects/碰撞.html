@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+    #box {
+      width: 40px;
+      height: 40px;
+      background: blue;
+      border-radius: 20px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      var oBox = document.getElementById('box');
+      document.onclick = function() {
+        var speedX = 8;
+        var speedY = 8;
+
+        var viewW = oBox.offsetWidth;
+        var viewH = oBox.offsetHeight;
+
+        setInterval(function() {
+          var screenW = document.body.clientWidth || document.documentElement.clientWidth;
+          var screenH = document.body.clientHeight || document.documentElement.clientHeight;
+
+          var offsetTop = oBox.offsetTop + speedY;
+          var offsetLeft = oBox.offsetLeft + speedX;
+
+          if (offsetTop >= screenH - viewH) {
+            speedY *= -1;
+            offsetTop = screenH - viewH;
+          } else if (offsetTop <= 0) {
+            speedY *= -1;
+            offsetTop = 0;
+          }
+
+          if (offsetLeft >= screenW - viewW) {
+            speedX *= -1;
+            offsetLeft = screenW - viewW;
+          } else if (offsetLeft <= 0) { // 触碰到左边
+            speedX *= -1;
+            offsetLeft = 0;
+          }
+
+          oBox.style.left = offsetLeft + 'px';
+          oBox.style.top = offsetTop + 'px';
+        }, 50);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="box"></div>
+</body>
+
+</html>

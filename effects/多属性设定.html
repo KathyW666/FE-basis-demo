@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    #box{
+      width: 100px;
+      height: 100px;
+      background: #FF3151;
+      opacity: 0.3
+    }
+  </style>
+  <script src="multimove.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      var oBox = document.getElementById('box');
+      oBox.onclick = function() {
+        startMove(this, {
+          width: 200,
+          height: 200,
+          opacity: 80,
+        });
+      }
+    }
+  </script>
+  <!-- <script type="text/javascript">
+    window.onload = function() {
+      var oBox = document.getElementById('box');
+      oBox.onclick = function() {
+        setStyle(this, {
+          width: '200px',
+          height: '200px',
+          background: 'purple'
+        })
+      };
+
+      function setStyle(obj, attJSON) {
+        for (key in attJSON) {
+          obj.style[key] = attJSON[key];
+        }
+      }
+    }
+  </script> -->
+</head>
+
+<body>
+  <div id="box"></div>
+</body>
+
+</html>

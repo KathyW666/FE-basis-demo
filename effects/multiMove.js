@@ -7,12 +7,12 @@ function startMove(obj, attJSON) {
         var isStop = true;
         for (key in attJSON) {
             if (key == 'opacity') {
-                currentValue = parseInt(getStyle(obj, key));
+                currentValue = parseInt(getStyle(obj, key)*100);
             } else {
                 currentValue = parseInt(getStyle(obj, key));
             }
             speed = (attJSON[key] - currentValue) / 7;
-            speed = speed > 0 Math.ceil(speed) : Math.floor(speed);
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
             currentValue += speed;
             if (currentValue != attJSON[key]) {

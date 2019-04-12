@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    #box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      opacity: 0.3;
+    }
+  </style>
+  <script src="move.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      var oBox = document.getElementById('box');
+      oBox.onclick = function() {
+        startMove(oBox, "width", 300, function() {
+          startMove(oBox, "height", 300, function() {
+            startMove(oBox, "opacity", 80);
+          })
+        })
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <div id="box"></div>
+</body>
+
+</html>

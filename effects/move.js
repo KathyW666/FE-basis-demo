@@ -1,4 +1,4 @@
-function startMove(obj, att, target) {
+function startMove(obj, att, target, endFun) {
 	clearInterval(obj.timer);
 
 	var speed = 0;
@@ -8,15 +8,16 @@ function startMove(obj, att, target) {
 		if (att == 'opacity') {
 			currentValue = parseInt(getStyle(obj, att)*100);
 		} else {
-			currentValue = getStyle(obj, att);
+			currentValue = parseInt(getStyle(obj, att));
 		}
-		
+
 		speed = (target - currentValue) / 7;
 		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
 		currentValue += speed;
 		if (currentValue == target) {
 			clearInterval(obj.timer);
+			if (endFun) endFun();
 		} else {
 			if (att == 'opacity') {
 				obj.style.opacity= currentValue / 100;
@@ -31,5 +32,6 @@ function startMove(obj, att, target) {
 
 function getStyle(obj, att) {
 	// 注意内联样式返回px
-	return parseInt(window.getComputedStyle ? getComputedStyle(obj)[att] : obj.currentStyle[att]);
+	return window.getComputedStyle ? getComputedStyle(obj)[att] : obj.currentStyle[att];
+
 }
