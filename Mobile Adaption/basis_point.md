@@ -21,5 +21,5 @@
 ![怎样适应视网膜分辨率](http://www.w3cplus.com/sites/default/files/blogs/201212/retina-web-10.jpg)
 
 
-### dpr
+4. dpr
 dpr(device pixel ratio)设备像素比
