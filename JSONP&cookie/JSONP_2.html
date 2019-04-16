@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 定义函数，获取数据之后用到的操作 -->
+    <script type="text/javascript">
+        function showNews(data) {
+            alert(data);
+            var oUl = document.createElement('ul');
+            document.body.appendChild(oUl);
+            for (let i = 0; i < data.length; i++) {
+                var oLi = document.createElement('li');
+                oLi.innerHTML = data[i];
+                oUl.appendChild(oLi);
+            }
+        }
+    </script>
+    <!-- 获取数据，在函数调用中，将需要传递的 数据 以 函数参数 的形式传递 -->
+    <!-- <script src="http://bluezyz.com/study/01-data.php" charset="utf-8"></script> -->
+    <script type="text/javascript">
+        window.onload = function() {
+            // 获取一次数据，添加一个script标签
+            var oScript = document.createElement('script');
+            oScript.src = "http://bluezyz.com/study/01-data.php";
+            document.head.appendChild(oScript);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

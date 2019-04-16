@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="ajax.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.onclick = function() {
+                ajax('post', "http://bluezyz.com/study/login_post.php",
+                    'user=qingbuyaodianwo&password=123321',
+                    function(response) {
+                        document.write(response);
+                    })
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

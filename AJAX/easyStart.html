@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    document.onclick = function() {
+      var request = new XMLHttpRequest();
+      request.open('GET', "https://api.apiopen.top/musicRankings");
+      request.send();
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          if (request.status == 200) {
+            var jsonData = JSON.parse(request.response);
+            var result = jsonData.result;
+            var oUl = document.createElement('ul');
+            for (let i = 0; i < result.length; i++) {
+              var oLi = document.createElement('li');
+              oLi.innerHTML = result[i].name;
+              oUl.appendChild(oLi);
+            }
+            document.body.appendChild(oUl);
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
