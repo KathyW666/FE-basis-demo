@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function() {
+            bt1.onclick = function() {
+                var expiresTime = new Date();
+                expiresTime.setSeconds(expiresTime.getSeconds() + 10);
+                document.cookie = 'age=20;expires=' + expiresTime.toGMTString();
+                document.cookie = 'name=kathy';
+                document.cookie = 'id=1000';
+
+                alert('success');
+            }
+            bt2.onclick = function() {
+                alert(document.cookie);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" name="bt1" id="bt1" value="存储数据" />
+    <input type="button" name="bt2" id="bt2" value="获取数据" />
+</body>
+
+</html>

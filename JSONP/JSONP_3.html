@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 300px;
+            margin: 50px auto;
+        }
+        #text{
+            width: 298px;
+            height: 30px;
+            border: 1px solid gray;
+            font-size: 24px;
+        }
+        #list{
+            width: 298px;
+            border: 1px solid gray;
+            list-style: none;
+            border-top: 0;
+            display: none;
+        }
+        #list li{
+            line-height: 30px;
+        }
+        #list li a{
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+        #list li a:hover{
+            background: rgba(1,1,1,0.3);
+        }
+    </style>
+    <!-- 以函数参数形式进行数据传输 -->
+    <!-- jQuery110208719237391470525_1555419237384({q: "", p: false, bs: "", csor: "0", status: 0,…});
+bs: ""
+csor: "0"
+g: [{q: "无人机拓扑管理存在问题", t: "hs", st: {q: "无人机拓扑管理存在问题", ts: 1555149855, src: 1, mtype: 0, ek: ""}},…]
+0: {q: "无人机拓扑管理存在问题", t: "hs", st: {q: "无人机拓扑管理存在问题", ts: 1555149855, src: 1, mtype: 0, ek: ""}}
+1: {q: "hbuilderX", t: "hs", st: {q: "hbuilderX", ts: 1554988573, src: 1, mtype: 0, ek: ""}}
+2: {q: "unix新建文本文件", t: "hs", st: {q: "unix新建文本文件", ts: 1554858226, src: 1, mtype: 0, ek: ""}}
+3: {q: "袋子中A中装有2张10元纸币和3张1元纸币", t: "hs",…}
+4: {q: "有三件装备,每次掉落且仅掉落一件,,每件装备掉率相同。", t: "hs",…}
+5: {q: "炉石传说 策划分析", t: "hs", st: {q: "炉石传说 策划分析", ts: 1554349693, src: 1, mtype: 0, ek: ""}}
+6: {q: "腾讯云前端面经2019耿成俊", t: "hs", st: {q: "腾讯云前端面经2019耿成俊", ts: 1553698246, src: 1, mtype: 0, ek: ""}}
+7: {q: "封装函数 f,使 f 的 this 指向指定的对象", t: "hs",…}
+8: {q: "雅思哥", t: "hs", st: {q: "雅思哥", ts: 1553645269, src: 1, mtype: 0, ek: ""}}
+9: {q: "css 统一图片大小", t: "hs", st: {q: "css 统一图片大小", ts: 1552976290, src: 1, mtype: 0, ek: ""}}
+p: false
+q: ""
+s: []
+status: 0 -->
+
+    <!-- 检索接口 -->
+    <!-- https://www.baidu.com/s?wd=nike%20%E5%AE%98%E7%BD%91&rsv_spt=1&rsv_iqid=0xc9fc77090000a7f4
+&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=4&rsv_sug1=3&rsv_sug7=100 -->
+
+    <!-- 获取列表信息接口 -->
+    <!-- https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/
+    su?wd=nik&json=1&p=3&sid=1458_28776_21121_18559_28775_28724_28558_28831_28585
+    &req=2&bs=nike%20%E5%AE%98%E7%BD%91&csor=3&pwd=ni
+    &cb=jQuery110201632910900924487_1555421543402&_=1555421543407 -->
+
+    <!-- wd 检索关键字 -->
+    <!-- cd 函数名 -->
+    <script type="text/javascript">
+        function setList(data) {
+            var oList = document.getElementById('list');
+            oList.innerHTML = '';
+
+            var dataArr = data.s;
+            for (let i = 0; i < dataArr.length; i++) {
+                let oLi = document.createElement('li');
+                oList.appendChild(oLi);
+
+                var oA = document.createElement('a');
+                oA.innerHTML = dataArr[i];
+                oA.href = "https://www.baidu.com/s?wd=" + dataArr[i];
+                oLi.appendChild(oA);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oText = document.getElementById('text');
+            var oList = document.getElementById('list');
+
+            oText.onkeyup = function() {
+                if (this.value.length) {
+                    var oScript = document.createElement('script');
+                    oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + this.value + "&cb=setList";
+                    document.head.appendChild(oScript);
+                    oList.style.display = 'block';
+                } else {
+                    oList.style.display = 'none';
+                }
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" id="text" value="">
+        <ul id='list'>
+
+        </ul>
+    </div>
+</body>
+
+</html>
