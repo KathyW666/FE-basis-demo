@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- 定义表单控件对象中占位文本的样式 -->
+<!-- 继承作用文本设定，受到文本框的限制，不同浏览器效果不同，慎改 -->
+<!-- 暂非css3标准 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				color: red;
+			}
+			input::placeholder{
+				color: dodgerblue;
+				opacity: 1;
+				/* firefox 默认有遮罩效果 ie中失效 */
+			}
+			input:-ms-input-placeholder{
+				/* 针对IE兼容 注意一个冒号 */
+			}
+			input::-moz-placeholder{
+				/* firefox */
+			}
+			input::-webkit-input-placeholder{
+				/* 旧chrome */
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" placeholder="请输入密码" />
+	</body>
+</html>

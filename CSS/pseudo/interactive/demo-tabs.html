@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- 纯css实现选项卡切换：利用checkbox及相关伪类 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 450px;
+				background: whitesmoke;
+				margin: 50px auto;
+				padding: 20px;
+				padding-top: 56px;
+				border-radius: 8px;
+				position: relative;
+			}
+			#box span {
+				position: absolute;
+				width: 150px;				
+				text-align: center;
+				height: 36px;
+				line-height: 36px;
+				border-radius: 8px 8px 0 0;
+				background: silver;
+				top: 20px;
+			}
+			#box label:nth-child(1) span{
+				left: 20px;
+			}
+			#box label:nth-child(2) span{
+				left: 170px;
+			}
+			#box label:nth-child(3) span{
+				left: 320px;
+			}
+			#box ul{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				background: white;
+				padding: 10px;
+				line-height: 26px;
+				display: none;
+			}
+			#box li{
+				height: 26px;
+				overflow: hidden;
+			}
+			#box li:hover{
+				color: orangered;
+			}
+			#box input {
+				display: none;
+			}
+			#box input:checked ~ ul {
+				display: block;
+			}
+			#box input:checked ~ span {
+				background: white;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<label>
+				<input type="radio" name="tab" id="tab1" checked="checked"/>
+				<span>今日要闻</span>
+				<ul>
+					<li>免费游戏如何让玩家们爆肝?日常任务从早到晚都做不完</li>
+					<li>免费游戏如何让玩家们爆肝?日常任务从早到晚都做不完</li>
+					<li>免费游戏如何让玩家们爆肝?日常任务从早到晚都做不完</li>
+					<li>免费游戏如何让玩家们爆肝?日常任务从早到晚都做不完</li>
+					<li>免费游戏如何让玩家们爆肝?日常任务从早到晚都做不完</li>
+				</ul>
+			</label>
+			
+			<label>
+				<input type="radio" name="tab" id="tab2" />
+				<span>热门活动</span>
+				<ul>
+					<li>《自走棋手游》为了不被国内大厂借鉴 把自己改的面目全非</li>
+					<li>《自走棋手游》为了不被国内大厂借鉴 把自己改的面目全非</li>
+					<li>《自走棋手游》为了不被国内大厂借鉴 把自己改的面目全非</li>
+					<li>《自走棋手游》为了不被国内大厂借鉴 把自己改的面目全非</li>
+					<li>《自走棋手游》为了不被国内大厂借鉴 把自己改的面目全非</li>
+				</ul>
+			</label>
+			
+			<label>
+				<input type="radio" name="tab" id="tab3" />
+				<span>热点话题</span>
+				<ul>
+					<li>邀请玩家一起共创全新NPC角色赢取海量QB</li>
+					<li>邀请玩家一起共创全新NPC角色赢取海量QB</li>
+					<li>邀请玩家一起共创全新NPC角色赢取海量QB</li>
+					<li>邀请玩家一起共创全新NPC角色赢取海量QB</li>
+					<li>邀请玩家一起共创全新NPC角色赢取海量QB</li>
+					<li>邀请玩家一起共创全新NPC角色赢取海量QB</li>
+				</ul>
+			</label>		
+		</div>
+	</body>
+</html>

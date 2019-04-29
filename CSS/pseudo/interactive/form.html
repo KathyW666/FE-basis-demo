@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 1. 对应html form的属性伪类 */
+			/* :disabled, :enabled, :checked, :invalid, :optional... */
+			input {
+				background: none;
+				outline: none;
+				border: 0px;
+
+				width: 360px;
+				height: 36px;
+								line-height: 36px;
+				border: 1px solid pink;
+				background: pink;
+				font-size: 18px;
+				padding-left: 10px;
+			}
+
+			input:checked {
+				width: 66px;
+				height: 66px;
+			}
+
+			
+			input:enabled {
+				background: skyblue;
+			}
+
+			input:disabled {
+				background: seagreen;
+			}
+
+			input:optional {
+				color: red;
+			}
+
+			input:required { 
+				/* 与:optional对应 */
+				font-weight: bold;
+			}
+
+			/* 默认可读可写 */
+			input:read-only {
+				color: blue;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<p><input type="text" value="1"></p>
+		<p><input disabled type="text" value="2"></p>
+		<p><input type="text" value="3"></p>
+		<p><input required type="text" value="4"></p>
+		<p><input type="text" value="5"></p>
+		<p><input readonly="readonly" type="text" value="6"></p>
+		<p>
+			<input type="checkbox" checked="checked" />
+			<input type="checkbox" />
+		</p>
+	</body>
+</html>

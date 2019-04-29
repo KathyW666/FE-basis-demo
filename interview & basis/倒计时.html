@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="myFun()">60</button>
+		<script>
+			function myFun() {
+				var content = document.getElementsByTagName('button')[0];
+				content.disabled = "disabled";
+				var text = parseInt(content.innerHTML);
+				var start = text;
+				var timer = setInterval(() => {				
+					text--;
+					if (text < 0) {
+						text = start;
+						clearInterval(timer);
+					}
+					content.innerHTML = ""+text;			
+				}, 1000)
+			}
+		</script>
+	</body>
+</html>

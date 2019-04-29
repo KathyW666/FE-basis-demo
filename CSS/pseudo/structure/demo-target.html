@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			div {
+				position: absolute;
+				background: rgba(0,0,0,0.3);
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				display: none;
+			}
+			#tip:target {
+				display: block;
+			}
+			div h1{
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#tip">click</a>
+		<div id="tip">
+			<h1><a href="">close</a></h1>
+		</div>
+	</body>
+</html>

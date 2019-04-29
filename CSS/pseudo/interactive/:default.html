@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 一组相似元素中默认的用户交互元素 */
+			form {
+				padding: 10px;
+			}
+			form input:default {
+				background: red;
+			}
+			.box input:default {
+				width: 20px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 应用1: 一组按钮中，第一个提交按钮 -->
+		<form action="#">
+			<input type="submit" value="1">
+			<input type="submit" value="2">
+			<input type="submit" value="3">
+		</form>
+		<!-- 若为属性为reset，不起作用 -->
+		<form action="#1">
+			<input type="reset" value="reset">
+			<input type="submit" value="2">
+			<input type="submit" value="3">
+		</form>
+		<!-- 默认处于选中状态的单选框、复选框 -->
+		<!-- 且取消后不改变默认状态 -->
+		<div class="box">
+			<input type="radio" name="sex" checked="checked">
+			<input type="radio" name="sex">
+		</div>
+		
+	</body>
+</html>

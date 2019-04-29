@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- 解决具有相同结构的模块，元素选择可能存在重复的问题 -->
+<!-- 以前解决方法：定义class/id修饰特定元素 -->
+<!-- :first-child, :nth-child(), 
+:last-child, :nth-last-child() 
+:only-child-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			:first-child{
+				background: lightyellow;
+				/* 作用的元素有<body>, <ul>, 第一个<li>, <time>, <a> */
+			}
+			ul :first-child{
+				background: mediumpurple;
+				/* 作用的元素有 第一个<li>, <time>, <a> */
+				/* 只制定了父对象,未指定子对象 */
+			}
+			
+			ul li {
+				font-size: 24px;
+			}
+			/* ul li:first-child{
+				background: pink;
+				/* 作用的元素只有 第一个<li>
+			} */
+			
+			ul > :first-child{
+				/* 直接使用子代选择符 */
+				background: pink;
+			}
+			ul li:nth-child(5){
+				background: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+			<li>
+				<time>loading<a href=""></a></time>
+			</li>
+		</ul>
+	</body>
+</html>

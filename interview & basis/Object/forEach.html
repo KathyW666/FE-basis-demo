@@ -21,7 +21,7 @@
 				var key;
 				if (obj instanceof Array) {
 					obj.forEach(function(item, index){
-						fn(index, item);
+						fn(item, index);
 					})
 				} else {
 					for (key in obj) {

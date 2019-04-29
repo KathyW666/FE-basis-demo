@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.comboBox {
+				position: relative;
+				margin: 10px;
+			}
+
+			.comboBox select {
+				width: 120px;
+				height: 20px;
+			}
+
+			.comboBox input {
+				width: 102px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="comboBox">
+			<input type="text"></input>
+			<select onChange="comboBoxSelect(this)">
+				<option value="选项1">选项1</option>
+				<option value="选项2">选项2</option>
+				<option value="选项3">选项3</option>
+				<option value="选项4">选项4</option>  
+			</select>
+		</div>
+
+		<script type="text/javascript">
+			comboBoxSelect = function(obj) {
+				var box = obj.parentNode;
+				var ipt = box.getElementsByTagName("input")[0];
+				ipt.value = obj.value;
+			}
+		</script>
+	</body>
+</html>

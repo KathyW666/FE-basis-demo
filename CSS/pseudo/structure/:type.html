@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- 适用于列表结构的伪类 ul ol :nth-child -->
+<!-- 适用于包含多种类型元素的结构 div... -->
+<!-- :nth-of-type, :nth-last-of-type, :only-of-type -->
+<!-- :first-of-type, :last-of-type -->
+<!-- 好习惯：使用结构性伪类时，标清父子级关系 -->
+<!-- 最好使用>子代选择符实现 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				border: 2px solid royalblue;
+				margin: 30px;
+			}
+			div span {
+				color: red;
+			}
+			/* 每个层级元素的第一个元素都被选择 */
+			/* div :first-child{
+				color: blue;
+			} */
+			
+			/* 每个层级元素的第一个元素 类型！！ 都被选择 */
+			/* div :first-of-type{
+				color: green;
+			} */
+			
+			/* 做限定后，限定于<p>层级 */
+			/* 此时第一个div中的第一个p无效, 因为p不是第一个元素 */
+			/* div p:first-child{
+				color: blue;
+			} */
+			
+			/* 选择第一个p类型，因此两个div都生效 */
+			div p:first-of-type{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>title</h1>
+			<p>text...<span>text...</span><span>text...</span></p>
+			<p>text...<span>text...</span><span>text...</span></p>
+			<p>text...<span>text...</span><span>text...</span></p>
+			<p>text...<span>text...</span><span>text...</span></p>
+		</div>
+		<div>
+			<p>text...<span>text...</span><span>text...</span></p>
+			<p>text...<span>text...</span><span>text...</span></p>
+			<p>text...<span>text...</span><span>text...</span></p>
+			<p>text...<span>text...</span><span>text...</span></p>
+		</div>
+	</body>
+</html>

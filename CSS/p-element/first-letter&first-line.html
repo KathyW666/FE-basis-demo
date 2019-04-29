@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- 作用于 块状元素 inline-block tabel-cell list-item 等-->
+
+<!-- 只能使用部分css属性 -->
+<!-- first-letter：字体文本相关, 盒模型部分效果（border），浮动 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				display: inline-block;
+				width: 300px;
+				font-size: 20px;
+				line-height: 2;
+				text-align: justify;
+				padding: 30px;
+				border: 10px lightcoral solid;
+			}
+			.p1::first-letter{
+				font-size: 2em;
+				background: lightcoral;
+				margin: 10px;
+				color: white;
+				border-radius: 50%;
+				padding: 3px 10px;
+				float: right; 
+				/* letter-spacing: 3em; */
+			}
+			.p2::first-line{
+				font-size: 2em;
+				background: lightcoral;
+				color: white;
+				border-radius: 50%;
+				padding: 3px 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="p1">最近总是感觉对vue的一些用法和语句还是不理解，于是决定撸一下源码，用于加深自己对vue的理解，同时vue主要是通过rollup进行打包编译，因为它相比webpack更加轻量，行了，废话不多说了，开始了！</p>
+		<p class="p2">最近总是感觉对vue的一些用法和语句还是不理解，于是决定撸一下源码，用于加深自己对vue的理解，同时vue主要是通过rollup进行打包编译，因为它相比webpack更加轻量，行了，废话不多说了，开始了！</p>
+	</body>
+</html>

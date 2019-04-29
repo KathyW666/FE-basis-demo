@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- ::before, ::after, 结合content使用 -->
+<!-- 不属于真实的DOM对象 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				border: 3px solid red;
+				background: yellow;
+				background-clip: content-box;
+				width: 200px;
+				padding: 20px;
+				position: relative;
+			}
+			/* 都存在于对象的content-box中 */
+			#box::before{
+				/* content内容默认是inline的元素，可转化成block元素 */
+				content:"before"
+			}
+			/* 属性类型 */
+			#box::after{
+				/* 将属性值作为内容，动态关联 */
+				content: attr(title); 
+				background: black;
+				color: gold;
+			}
+			#box::before{
+				/* url 外联资源类型 */
+				position: absolute;
+				/* 父级元素是box, 相当于插在box content中的元素 */
+				display: block;
+				content: url(https://cdn2.jianshu.io/assets/web/nav_jsds_beta-eeb44d165b8ba37680fdb7e65ae17ae4.png); 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" title="titleboxbox">
+			哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+		</div>
+	</body>
+</html>

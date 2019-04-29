@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- 应用二，解决浮动元素，父级塌陷 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.list-item {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				border: 1px solid dodgerblue;
+				padding: 10px;
+			}
+
+			.list-item li {
+				border: 1px solid orangered;
+				width: 230px;
+				float: left;
+			}
+			/* ！！！！！！！！！！！！！！！！！ */
+			.clearfix::after {
+				content: "";
+				/* 默认是行间元素, clear没有效果 */
+				/* 先转化成块级元素 */
+				display: block;
+				clear: both;
+				/* 防止字号影响高度 */
+				height: 0; 
+				/* 隐藏 */
+				visibility: hidden;
+			}
+
+			.list-item .imgbox img {
+				display: block;
+				width: 100%;
+			}
+
+			.list-item h3 {
+				font-size: 12px;
+				font-weight: normal;
+				line-height: 16px;
+				height: 32px;
+				overflow: hidden;
+			}
+
+			.list-item a {
+				color: #222222;
+				text-decoration: none;
+			}
+
+			.list-item .info {
+				line-height: 36px;
+				text-align: right;
+				padding: 0 5px;
+			}
+
+			.list-item .price {
+				font-size: 22px;
+				color: red;
+				float: left;
+			}
+			.list-item .price::before{
+				content: "￥";
+				font-size: 14px;
+			}
+			
+			.list-item .buyer {
+				font-size: 12px;
+				color: gray;
+			}
+			
+			.list-item .buyer::after {
+				font-size: 12px;
+				content: "人已买";
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list-item clearfix">
+			<li>
+				<div class="imgbox">
+					<img src="../logo-light.b4f80519.png">
+				</div>
+				<h3><a href="#">超可爱的猫超可爱的猫超可爱的猫超可爱的猫可爱的猫超可爱的猫超可爱的猫超可爱的猫</a></h3>
+				<div class="info">
+					<span class="price">998</span>
+					<span class="buyer">3214</span>
+				</div>
+			</li>
+			<li>
+				<div class="imgbox">
+					<img src="../logo-light.b4f80519.png">
+				</div>
+				<h3><a href="#">超可爱的猫超可爱的猫超可爱的猫超可爱的猫可爱的猫超可爱的猫超可爱的猫超可爱的猫</a></h3>
+				<div class="info">
+					<span class="price">998</span>
+					<span class="buyer">3214</span>
+				</div>
+			</li>
+			<li>
+				<div class="imgbox">
+					<img src="../logo-light.b4f80519.png">
+				</div>
+				<h3><a href="#">超可爱的猫超可爱的猫超可爱的猫超可爱的猫可爱的猫超可爱的猫超可爱的猫超可爱的猫</a></h3>
+				<div class="info">
+					<span class="price">998</span>
+					<span class="buyer">3214</span>
+				</div>
+			</li>
+			<li>
+				<div class="imgbox">
+					<img src="../logo-light.b4f80519.png">
+				</div>
+				<h3><a href="#">超可爱的猫超可爱的猫超可爱的猫超可爱的猫可爱的猫超可爱的猫超可爱的猫超可爱的猫</a></h3>
+				<div class="info">
+					<span class="price">998</span>
+					<span class="buyer">3214</span>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

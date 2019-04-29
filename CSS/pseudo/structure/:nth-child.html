@@ -1,0 +1,46 @@
+q<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ol li:nth-child(3n) {
+				/* 隔2选一 or 3的倍数 */
+				background: pink;
+			}
+			ol li:nth-child(3n+2) {
+				/* 从第2个开始,隔2选一 */
+				color: pink;
+			}
+			/* an+b: 从第b个开始, 隔(a-1）选一) */
+			ol li:nth-child(even) {
+				/* 偶数 even 奇数 odd*/
+				color: blue;
+			}
+			
+			ol li:nth-child(n+4){
+				/* 从第4个往后 */
+				border: 1px solid #2E8B57;
+			}
+			
+			ol li:nth-child(-n+3){
+				/* 从第3个往前 */
+				border: 1px solid orangered;
+			}
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li>000001</li>
+			<li>000002</li>
+			<li>000003</li>
+			<li>000004</li>
+			<li>000005</li>
+			<li>000006</li>
+			<li>000007</li>
+			<li>000008</li>
+			<li>000009</li>
+			<li>000010</li>
+		</ol>
+	</body>
+</html>
