@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			#tab li {
+				width: 80px;
+				text-align: center;
+				list-style: none;
+				background: pink;
+				float: left;
+				padding: 5px;
+				font-size: 36px;
+				line-height: 36px;
+				margin-right: 5px;
+			}
+			.tab ul{
+				width: 280px;
+				background: wheat;
+				position: absolute;
+				margin-top: 46px;
+			}
+			.tab li {
+				padding: 5px 10px 5px 10px;				
+			}
+			#tab1 ul {
+				display: block;
+			}
+			#tab2, #tab3 {
+				display: none;
+			}
+			#tab li:hover{
+				color: white;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<ul id='tab'>
+			<li>tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<div class="tab">
+			<ul id="tab1">
+				<li>tab1-1</li>
+				<li>tab1-2</li>
+				<li>tab1-3</li>
+				<li>tab1-4</li>
+				<li>tab1-5</li>
+			</ul>
+		</div>
+		<div class="tab">
+			<ul id="tab2">
+				<li>tab2-1</li>
+				<li>tab2-2</li>
+				<li>tab2-3</li>
+				<li>tab2-4</li>
+				<li>tab2-5</li>
+			</ul>
+		</div>
+		<div class="tab">
+			<ul id="tab3">
+				<li>tab3-1</li>
+				<li>tab3-2</li>
+				<li>tab3-3</li>
+				<li>tab3-4</li>
+				<li>tab3-5</li>
+			</ul>
+		</div>
+	</body>
+</html>

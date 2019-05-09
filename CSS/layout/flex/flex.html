@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				border: 1px red solid;
+				height: 300px;
+				display: inline-flex;
+				justify-content: space-between;
+				/* 缝隙消失 */
+			}
+			div>span{
+				background: lavender;
+				display: inline-block;
+				/* inline-block 会有缝隙 */
+				padding: 20px;
+				border: 1px blue solid;
+			}
+			div strong {
+				background: red;
+			}
+			span:first-child {
+				background: deeppink;
+				float: right; /*失效*/
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			12312
+			<span><strong>1</strong></span>
+			<span>2</span>
+			<span>3</span>
+			3213
+		</div>
+	</body>
+</html>

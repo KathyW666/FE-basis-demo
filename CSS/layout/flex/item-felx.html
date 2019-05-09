@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.flex{
+				border: 1px black solid;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.grow{
+				width: 600px;
+			}
+			.grow span{
+				width: 300px;
+				height: 200px;
+				background: lightblue;
+				flex-grow: 1.5;
+			}
+			.grow span:nth-child(even){
+				background: deeppink;
+				width: 90px;
+				flex-grow: 3;
+			}
+			.shrink{
+				width: 600px;
+				display: flex;
+				flex-wrap: nowrap;
+			}
+			.shrink span{
+				width: 250px;
+				background: lightblue;
+			}
+			.shrink span:nth-child(even){
+				background: pink;
+				flex-shrink: 0;
+			}
+			
+			.basis{
+				width: 900px;
+				display: flex;
+				flex-wrap: nowrap;
+				flex-direction: column;
+			}
+			.basis span{
+				width: 250px;
+				flex-basis: 100px;
+				background: lightblue;
+			}
+			.basis span:nth-child(even){
+				background: pink;
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex grow">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+		
+		<div class="flex shrink">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+		
+		<div class="flex basis">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+	</body>
+</html>
