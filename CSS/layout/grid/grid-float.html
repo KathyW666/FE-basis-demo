@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- float实现grid布局，注意清除浮动 -->
+<!-- dom结构定义行，css宽度定义列 -->
+<!-- 调用需求调用不同多列样式 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>float实现grid布局</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.wrapper {
+				width: 1200px;
+				border: 1px black solid;
+				margin: 0 auto;
+			}
+			.wrapper:after {
+				display: block;
+				content: "";
+				visibility: hidden;
+				height: 0;				
+				clear: both;
+			}
+			
+			.wrapper section{
+				float: left;
+			}
+
+			.col-1 {
+				width: 150px;
+			}
+
+			.col-2 {
+				width: 300px;
+			}
+
+			.col-3 {
+				width: 450px;
+			}
+
+			.col-4 {
+				width: 600px;
+			}
+
+			.col-5 {
+				width: 750px;
+			}
+
+			.col-6 {
+				width: 900px;
+			}
+
+			.col-7 {
+				width: 1050px;
+			}
+
+			.col-8 {
+				width: 1200px;
+			}
+			header{
+				height: 80px;
+				background: #EEEEEE;
+			}
+			header .logo{
+				background: dodgerblue;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<section class="col-2 logo">站点标识</section>
+				<section class="col-3">中间留白区</section>
+				<section class="col-3">快捷连接</section>
+			</header>
+			<nav>
+				<section class="col-8">主导航</section>
+				<section class="col-8">热门导航</section>
+			</nav>
+			<div>
+				<section class="col-8">图片广告</section>
+				<section class="col-8">文字广告</section>
+			</div>
+			<div>
+				<section class="col-2">图文推荐1</section>
+				<section class="col-2">图文推荐2</section>
+				<section class="col-2">图文推荐3</section>
+				<section class="col-2">图文推荐4</section>
+			</div>
+			<div>
+				<section class="col-2">左边栏</section>
+				<section class="col-3">主要内容区1</section>
+				<section class="col-3">主要内容区2</section>
+			</div>
+		</div>
+	</body>
+</html>
