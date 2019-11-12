@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+http 特点： 简单快速，灵活，无连接，无状态
+请求报文：请求行，请求头，空行，请求体
+Cookie：
+响应报文：状态行，响应头，空行，响应体
+协议，状态码，rest-after
+方法：GET POST PUT DELETE HEAD（获得报文首部）
+GET: 不重复提交 POST：再次请求
+	url可以收藏		不可以
+	会被浏览器主动缓存  手动设置
+	参数保存在历史记录  不保留
+	长度限制			无限制
+	只接受ASCII字符
+	参数暴露在url      request 
+	
+1继续处理
+2ok
+3重定向 301永久， 302临时，304（缓存不变）
+400 401未授权（WWW-Authenticate） 
+500 服务器
+
+持久连接（1.1） Connection：keep-alive
+管线化
+
+csrf：跨站请求伪造  token， referer，隐藏令牌
+xss：跨站脚本攻击

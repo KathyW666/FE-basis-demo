@@ -7,16 +7,22 @@
 			div{
 				width: 0;
 				height: 0;
-				border-left: 50px solid transparent;
+				/* border-left: 50px solid transparent;
 				border-right: 50px solid transparent;
-				border-top: 50px solid dodgerblue;
+				border-top: 50px solid dodgerblue; */
 				/* border-bottom: 50px solid #C9E2B3; */
+			}
+			#d {
+				width: 30%;
+				/* padding-bottom: 30%; */
+				background: bisque;
 			}
 		</style>
 	</head>
 	<body>
 		<div></div>
-		<script type="text/javascript">
+		<div id="d"></div>
+		<!-- <script type="text/javascript">
 			(function(window){
 				function fn(str) {
 					this.str = str;
@@ -58,6 +64,44 @@
 			function isPali(str) {
 				return str === str.split('').reverse().join('');
 			}
+		</script> -->
+		<script type="text/javascript">
+			GetLeastNumbers_Solution([1,1,1,1], 4);
+			function GetLeastNumbers_Solution(input, k)
+{
+    // write code here
+	if (k === input.length) {
+		console.log(input);
+		return;
+	}
+    if (input.length <= 0 || k < 0 || k > input.length) return [];
+    let start = 0, end = input.length - 1;
+    let j = partition(input, start, end);
+    while (j !== k - 1) {
+        if (j < k - 1) j = partition(input, j+1, end);
+        else j = partition(input, start, j-1);
+    }
+    let res = input.slice(0, k);
+    res.sort((a, b) => {return a-b});
+    console.log(res);
+}
+
+function partition(input, start, end) {
+    let n = input[start];
+    let i = start, j = end + 1;
+    while (i <= j) {
+        while (i < end && input[++i] <= n){}
+        while (j > 0 && input[--j] > n){}
+        if (i > j) break;
+        swap(input, i, j);
+    } 
+    swap(input, start, j);
+    return j;
+}
+
+function swap(input, i, j) {
+    [input[i], input[j]] = [input[j], input[i]];
+	}
 		</script>
 	</body>
 </html>

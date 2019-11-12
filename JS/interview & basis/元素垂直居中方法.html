@@ -18,35 +18,7 @@
 				/* 核心,把垂直居中的元素相对父元素绝对定位 */
 			}
 
-			/* 2. 绝对定位+ 百分比 + 负位移 */
-			#box2 {
-				position: absolute;
-				width: 100px;
-				height: 100px;
-				background: red;
-				margin: auto;
-				left: 50%;
-				top: 50%;
-				margin-left: -50px;
-				margin-top: -50px;
-				/* margin */
-				/* transform: translate(-50%, -50%);		/* translate */
-				/* 不需预知元素尺寸 */
-			}
 
-			/* 3. display：flex 水平居中*/
-			#box3 {
-				width: 100px;
-				height: 100px;
-				background: red;
-				display: flex;
-				margin: auto;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				
-				/* !!! 设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。 */
-			}
 		</style>
 	</head>
 	<body>

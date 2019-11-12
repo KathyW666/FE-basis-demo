@@ -24,7 +24,7 @@
 				text-align: center;
 			}
 
-			li a {
+			li a{
 				text-decoration: none;
 				color: white;
 				display: block;
@@ -40,41 +40,13 @@
 			}
 			
 			.on {
-				color: darkred;
+				color: lightcoral;
+			}
+			
+			a:hover {
+				color: lightcoral;
 			}
 		</style>
-
-		<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function() {
-				var aLi = document.getElementsByTagName('li');
-				var currentContent = null;
-
-				for (var i = 0; i < aLi.length; i++) {
-					aLi[i].onmouseover = function() {
-						this.className = 'active';
-						currentContent = this.getElementsByClassName('content')[0];
-						currentContent.style.display = 'block';
-						var aContent = this.getElementsByTagName('a');
-						var currentSubContent = null;
-						for (var j = 0; j < aContent.length; j++) {
-							aContent[j].onmouseover = function() {
-								this.className = 'on';
-							}
-							aContent[j].onmouseout = function() {
-								this.className = '';
-							}
-						}
-					}
-					
-					aLi[i].onmouseout = function() {
-						this.className = '';
-						currentContent.style.display = '';
-					}
-				}
-				
-			})
-		</script>
 	</head>
 	<body>
 		<ul>
@@ -121,4 +93,35 @@
 			</li>
 		</ul>
 	</body>
+	<script src="getstyle.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			var aLi = document.getElementsByTagName('li');
+			var currentContent = null;
+	
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].onmouseover = function() {
+					this.className = 'active';
+					currentContent = this.getElementsByClassName('content')[0];
+					currentContent.style.display = 'block';
+					// var aContent = this.getElementsByTagName('a');
+					// var currentSubContent = null;
+					// for (var j = 0; j < aContent.length; j++) {
+					// 	aContent[j].onmouseover = function() {
+					// 		this.className = 'on';
+					// 	}
+					// 	aContent[j].onmouseout = function() {
+					// 		this.className = '';
+					// 	}
+					// }
+				}
+				
+				aLi[i].onmouseout = function() {
+					this.className = '';
+					currentContent.style.display = '';
+				}
+			}
+			
+		})
+	</script>
 </html>
