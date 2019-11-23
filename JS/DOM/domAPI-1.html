@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.line {
+				height: 5px;
+				background: pink;
+				margin: 10px auto;
+			}
+			.alert {
+				background: palevioletred;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">1
+			<div id="div3">
+				3
+			</div>
+		</div>
+		<div id="div2">2</div>
+		<button id="bt1" type="button">adoptNode</button>
+		<button id="bt2" type="button">importNode</button>
+		<button id="bt3" type="button">interator</button>
+		<button id="bt4" type="button">treeWalker</button>
+		<div class="line"></div>
+		<div id="con-edi" contenteditable>123</div>
+		<button id="bt5" type="button">contentEditable</button>
+		<div class="line"></div>
+		<div class="foo one two three" id="classList"></div>
+		<button id="bt6" type="button">classList</button>
+		<button id="bt7" type="add">class add</button>
+		<button id="bt8" type="remove">class remove</button>
+		<div class="line"></div>
+		<p id="para"> 5 > 3 </p>
+		<button id="bt9" class="alert" type="button">innerHTML</button>
+		<button id="bt10" class="alert" type="button">insert</button>
+		
+	</body>
+	<script type="text/javascript">
+		window.onload = () => {
+			let elem = document.getElementById('div3');
+			bt1.addEventListener('click', () => {
+				let node = document.adoptNode(elem);
+				console.log(node);
+				document.body.appendChild(node);
+			}, false);	
+			bt2.addEventListener('click', () => {
+				let node = document.importNode(elem, true);
+				console.log(node);
+				document.body.appendChild(node);
+			}, false);
+			bt3.addEventListener('click', () => {
+				let nodeIterator = document.createNodeIterator(
+				document.body, 
+				NodeFilter.SHOW_ELEMENT
+				);
+				let currentNode;
+				while(currentNode = nodeIterator.nextNode()) {
+					console.log(currentNode);
+				}
+			}, false);
+			bt4.addEventListener('click', () => {
+				let nodeTreeWalker = document.createTreeWalker(
+				document.body, 
+				NodeFilter.SHOW_ELEMENT
+				);
+				let currentNode;
+				while(currentNode = nodeTreeWalker.nextNode()) {
+					console.log(currentNode);
+				}
+			}, false);
+			bt5.addEventListener('click', () => {
+				let contentEditableDiv = document.getElementById('con-edi');
+				alert("Element.contentEditable: " + contentEditableDiv.contentEditable);
+				
+			}, false);
+			let oDiv = document.getElementById('classList');
+			bt6.addEventListener('click', () => {				
+				oDiv.innerHTML = 'class name: ' + oDiv.className;
+				oDiv.innerHTML += '<br/>'
+				for(let i = 0; i < oDiv.classList.length; i++) {
+					oDiv.innerHTML += i + ': ' + oDiv.classList[i] + ','
+				}				
+			}, false);
+			bt7.addEventListener('click', () => {				
+				oDiv.innerHTML = 'now click classList';
+				oDiv.classList.add('four');
+			}, false);
+			bt8.addEventListener('click', () => {				
+				oDiv.innerHTML = 'now click classList';
+				oDiv.classList.remove('four');
+			}, false);
+			bt9.addEventListener('click', () => {	
+				let oP = document.getElementsByTagName('p')[0];
+				oP.innerHTML += '<br/>';
+				alert(oP.innerHTML)
+			}, false);
+			bt10.addEventListener('click', () => {	
+				let oP = document.getElementsByTagName('p')[0];
+				oP.innerHTML = "<img src='' onerror=alert(1)>";
+			}, false);
+			
+		}	
+	</script>
+</html>
