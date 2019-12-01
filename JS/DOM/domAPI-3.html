@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#outer {
+				background: pink;
+			}
+
+			#inner {
+				background: lightsteelblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<blockquote id="outer">
+				<p>Hello</p>
+				<div id="inner">
+					<p>World</p>
+				</div>
+			</blockquote>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var outer = document.getElementById('outer');
+		var slt = outer.querySelector('div p'); // 在全局范围内搜索
+		console.log('slt: ', slt);
+		var sltA = outer.querySelectorAll('div p');
+		for (var item of sltA) console.log('sltA item: ', item)
+		console.log('sltA: ', sltA)
+				
+	</script>
+</html>

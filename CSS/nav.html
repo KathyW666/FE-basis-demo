@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			a,
+			li {
+				text-decoration: none;
+				list-style: none;
+				line-height: 30px;
+				color: white;
+			}
+
+			div {
+				clear: both;
+			}
+
+			#nav {
+				width: 420px;
+				height: 30px;
+				margin: 30px auto;
+			}
+
+			.item {
+				width: 100px;
+				height: 30px;
+				float: left;
+				background: darkgray;
+				text-align: center;
+				margin-right: 5px;
+			}
+
+			.item:hover {
+				background: dimgray;
+			}
+
+			.content {
+				display: none;
+			}
+
+			.item:hover>.content {
+				display: block;
+			}
+			
+			li:hover>a, .content>li:hover {
+				color: lightcoral;
+			}
+
+			.content>li {
+				width: 100px;
+				height: 30px;
+				background: dimgray;
+				position: relative;
+			}
+
+			.content>li:hover>ul {
+				display: block;
+			}
+
+			.sub {
+				width: 100px;
+				position: absolute;
+				left: 100px;
+				top: 0;
+				display: none;
+			}
+
+			.sub>li {
+				height: 30px;
+				background: gray;
+				margin-bottom: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="nav">
+			<li class="item">
+				<a href="#">首页</a>
+				<ul class="content">
+					<li>
+						<a href="#">首页1</a>
+						<ul class="sub">
+							<li>首页1-1</li>
+							<li>首页1-2</li>
+							<li>首页1-3</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">首页2</a>
+						<ul class="sub">
+							<li>首页2-1</li>
+							<li>首页2-2</li>
+							<li>首页2-3</li>
+						</ul>
+					</li>
+					<li>首页3</li>
+					<li>首页4</li>
+					<li>首页5</li>
+				</ul>
+			</li>
+			<li class="item">
+				<a href="#">视觉</a>
+				<ul class="content">
+					<li>视觉1</li>
+					<li>视觉2</li>
+					<li>视觉3</li>
+					<li>视觉4</li>
+					<li>视觉5</li>
+				</ul>
+			</li>
+			<li class="item">
+				<a href="#">前端</a>
+				<ul class="content">
+					<li>前端1</li>
+					<li>前端2</li>
+					<li>前端3</li>
+					<li>前端4</li>
+					<li>前端5</li>
+				</ul>
+			</li>
+			<li class="item">
+				<a href="#">代码</a>
+				<ul class="content">
+					<li>代码1</li>
+					<li>代码2</li>
+					<li>代码3</li>
+					<li>代码4</li>
+					<li>代码5</li>
+				</ul>
+			</li>
+			<div></div>
+		</ul>
+	</body>
+</html>
