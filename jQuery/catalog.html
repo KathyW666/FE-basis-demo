@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		li {
+			list-style: none;
+			cursor: pointer;
+		}
+
+		li:hover {
+			background: #f3edc2;
+			color: #FF6600;
+		}
+
+		ul {
+			margin-bottom: 10px;
+		}
+
+		span {
+			padding: 4px 10px;
+			margin-right: 5px;
+			border-radius: 2px;
+		}
+
+		.wrap {
+			width: 70%;
+			margin: auto;
+			height: 200px;
+			margin-top: 200px;
+			border: #666666 1px solid;
+			border-radius: 10px;
+			padding: 20px;
+		}
+
+		.catalog li {
+			float: left;
+			padding: 4px 10px;
+			margin-right: 5px;
+			border-radius: 2px;
+		}
+
+		.catalog p {
+			float: left;
+			padding-top: 5px;
+		}
+
+		.selected p {
+			display: inline-block;
+		}
+
+		.selected .act:hover {
+			cursor: pointer;
+		}
+
+		.defalut {
+			color: darkgrey;
+		}
+
+		.act {
+			background: #ff6600;
+			color: #fff;
+		}
+		
+		.selected .act:hover {
+			font-weight: bolder;
+		}
+	</style>
+	<body>
+		<div class="wrap">
+			<ul class="catalog">
+				<p class='coat'>上装：</p>
+				<li class="act">全部</li>
+				<li>针织衫</li>
+				<li>毛衣</li>
+				<li>T恤</li>
+				<li>卫衣</li>
+				<li>风衣</li>
+				<div class="clear"></div>
+			</ul>
+			<ul class="catalog">
+				<p class='trous'>下装：</p>
+				<li class="act">全部</li>
+				<li>牛仔裤</li>
+				<li>运动裤</li>
+				<li>短裙</li>
+				<li>长裙</li>
+				<div class="clear"></div>
+			</ul>
+			<ul class="catalog">
+				<p class='shoes'>鞋子：</p>
+				<li class="act">全部</li>
+				<li>运动鞋</li>
+				<li>高跟鞋</li>
+				<li>皮鞋</li>
+				<div class="clear"></div>
+			</ul>
+			<div class='selected'>
+				<p>已选条件:</p>
+				<span class='defalut'>暂时没有选择条件</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$('li').click(function() {
+			var cataName = $(this).siblings()[0].className;
+			$(this).addClass('act').siblings().removeClass('act');
+			$('.selected .defalut').css('display', 'none');
+			$('.selected .' + cataName + '').remove();
+			if ($(this).html() !== '全部') {
+				$('.selected').append('<span class="act ' + cataName + '">' + $(this).html() + ' x' + '</span>');
+			}
+			$('.selected .act').click(function() {
+				$(this).remove();
+				var deleCata = $(this)[0].className.slice(4);
+				$('.' + deleCata + '').next().addClass('act').siblings('.act').removeClass('act');
+				showDefault('.selected span');
+			})
+			showDefault('.selected span');
+		})
+		function showDefault(selector) {
+			if ($(selector).length === 1) {
+				$(selector).css('display', 'inline');
+			}
+		}
+	</script>
+</html>

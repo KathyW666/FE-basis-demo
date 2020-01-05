@@ -30,6 +30,8 @@
 		var sltA = outer.querySelectorAll('div p');
 		for (var item of sltA) console.log('sltA item: ', item)
 		console.log('sltA: ', sltA)
-				
+		outer.insertAdjacentElement('beforeend',slt);
+		// 只在现有DOM中插入节点, 执行速度快于innerHTML
+		outer.insertAdjacentHTML('beforeend','<div id="two">two</div>')
 	</script>
 </html>

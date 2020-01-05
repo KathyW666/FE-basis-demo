@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#film {
+			width: 720px;
+			height: 220px;
+		}
+
+		li {
+			position: relative;
+			display: inline-block;
+			list-style: none;
+			width: 160px;
+			height: 220px;
+			margin-right: 20px;
+			margin-top: 30px;
+		}
+		
+		.bottom {
+			position: relative;
+			width: 160px;
+			top:190px;
+			height: 30px;
+			background: linear-gradient(to bottom,rgba(0, 0, 0, 0), #000000);
+		}
+		
+		.bottom > div{
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+		}
+		
+		.grade {
+			float: right;
+			margin-right: 10px;
+			color: #FFB400;
+			overflow: hidden;		
+		}
+
+		.name {			
+			width: 100px;
+			padding-left: 10px;
+			color: white;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.max {
+			position: absolute;
+			background: dodgerblue;
+			box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.5);
+			top: 5px;
+			left: -2px;
+			color: white;
+			font-style: italic;
+			font-weight: bold;
+			font-size: 14px;
+			padding: 3px 10px 3px 8px;
+		}
+	</style>
+	<body>
+		<ul id="film"></ul>
+	</body>
+	<script type="text/javascript">
+		var films = [{
+				name: "冰雪奇缘2",
+				grade: 8.9,
+				max: true,
+				act: 1,
+				pic: "https://p0.meituan.net/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg@160w_220h_1e_1c"
+			}, {
+				name: "两只老虎",
+				grade: 7.8,
+				max: false,
+				act: 1,
+				pic: "https://p0.meituan.net/moviemachine/19d48b1fd4f4af5c8c8e1c780a26fa431567220.jpg@160w_220h_1e_1c"
+			}, {
+				name: "利刃出鞘",
+				grade: 8.8,
+				max: false,
+				act: 1,
+				pic: "https://p0.meituan.net/movie/dd488887e8a1c8ab4723eee4026d25aa1973142.jpg@160w_220h_1e_1c"
+			}, {
+				name: "勇敢者游戏2",
+				max: true,
+				act: 2,
+				pic: "https://p1.meituan.net/movie/504168c45c1924fb48d6ff5478d02c612662068.jpg@160w_220h_1e_1c"
+			}, {
+				name: "南方车站的聚会",
+				max: true,
+				act: 2,
+				pic: "https://p1.meituan.net/movie/6d1a970c7fefb016006b0af099d8ff38867262.jpg@160w_220h_1e_1c"
+			}, {
+				name: "一生有你",
+				grade: 7.6,
+				max: false,
+				act: 1,
+				pic: "https://p1.meituan.net/movie/b9abe12e6bd785d29abef9c98518eec62044645.jpg@160w_220h_1e_1c"
+			}, {
+				name: "吹哨人",
+				max: false,
+				act: 2,
+				pic: "https://p0.meituan.net/movie/2cbc83f180080382b7754652b04718152049777.jpg@160w_220h_1e_1c"
+			}, {
+				name: "若能与你共乘海浪之上",
+				max: false,
+				act: 2,
+				pic: "https://p0.meituan.net/movie/bf2a8fed75e718413273ba7fb0082f38571064.jpg@160w_220h_1e_1c"
+			},
+			{
+				name: "海上钢琴师",
+				grade: 9.3,
+				max: false,
+				act: 1,
+				pic: "https://p0.meituan.net/movie/609e45bd40346eb8b927381be8fb27a61760914.jpg@160w_220h_1e_1c"
+			}
+		];
+		var list = document.getElementById('film');
+		for (var i = 0; i < films.length; i++) {
+			if (films[i] && films[i] !== {}) {
+				var li = document.createElement('li');
+				li.style.backgroundImage = "url(" + films[i].pic + ")";
+				
+				var divBottom = document.createElement('div');
+				divBottom.className = 'bottom';
+				if (films[i].name) {
+					var divName = document.createElement('div');
+					divName.className = 'name';
+					divName.innerHTML = films[i].name;
+					divBottom.appendChild(divName);
+				}
+				if (films[i].act === 1) {
+					var divGrade = document.createElement('div');
+					divGrade.className = 'grade';
+					divGrade.innerHTML = films[i].grade;
+					divBottom.appendChild(divGrade);
+				}				
+				if (films[i].max) {
+					var spanMax = document.createElement('span');
+					spanMax.className = 'max';
+					spanMax.innerHTML = '3DIMAX'
+					li.appendChild(spanMax);
+				}
+				li.appendChild(divBottom);
+				list.appendChild(li);
+			}
+		}
+	</script>
+</html>

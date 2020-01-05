@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				display: inline-block;
+				margin: 10px;
+				padding: 5px;
+				font-size: 1rem;
+			}
+
+			span {
+				font-size: 0.875rem;
+			}
+
+			img {
+				display: inline;
+				position: relative;
+				left: -40px;
+			}
+
+			#passInfo,
+			#checkInfo {
+				position: relative;
+				left: -20px;
+			}
+
+			button {
+				border-radius: 5px;
+				padding: 5px;
+				font-size: 1rem;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="register">
+			<div>
+				<input type="text" id='tel' onblur='testTel()' placeholder="请输入手机号码" />
+				<span id='telInfo'></span>
+			</div>
+			<div>
+				<input type="password" id="password" onblur='testPass()' placeholder="请输入密码" />
+				<img id='eye1' onclick='changeIcon(oEye1)' src="eyeClose.png" />
+				<span id='passInfo'></span>
+			</div>
+			<div id="">
+				<input type="password" id="check" onblur='testCheck()' placeholder="请确认密码" />
+				<img id='eye2' onclick='changeIcon(oEye2)' src="eyeClose.png" />
+				<span id='checkInfo'></span>
+			</div>
+			<button type="button" onclick='registerSuccess()'>注册</button>
+			<span id='buttonInfo'></span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oTel = document.getElementById('tel');
+		var oPass = document.getElementById('password');
+		var oCheck = document.getElementById('check');
+		var oBt = document.getElementsByTagName('button')[0];
+		var oEye1 = document.getElementById('eye1');
+		var oEye2 = document.getElementById('eye2');
+
+		var tel = false;
+		var pass = false;
+		var check = false;
+		var eye = false;
+
+		function testTel() {
+			var telReg = /^1[3-8]\d{9}$/;
+			var telInfo = document.getElementById('telInfo');
+			if (oTel.value) {
+				if (!telReg.test(oTel.value)) {
+					telInfo.innerHTML = "手机号格式有误";
+					telInfo.style.color = 'red';
+					tel = false;
+				} else {
+					telInfo.innerHTML = "✅";
+					tel = true;
+				}
+			} else {
+				telInfo.innerHTML = "";
+			}
+		}
+
+		function testPass() {
+			var passReg = /^\d{6}$/;
+			var passInfo = document.getElementById('passInfo');
+			if (oPass.value) {
+				if (!passReg.test(oPass.value)) {
+					passInfo.innerHTML = "密码为6位数字";
+					passInfo.style.color = 'red';
+					pass = false;
+				} else {
+					passInfo.innerHTML = "✅";
+					pass = true;
+				}
+			} else {
+				passInfo.innerHTML = "";
+			}
+		}
+
+		function testCheck() {
+			var checkInfo = document.getElementById('checkInfo');
+			if (oPass.value) {
+				if (oPass.value !== oCheck.value) {
+					checkInfo.innerHTML = "两次密码不一致";
+					checkInfo.style.color = 'red';
+					check = false;
+				} else {
+					checkInfo.innerHTML = "✅";
+					check = true;
+				}
+			} else {
+				checkInfo.innerHTML = "";
+			}
+		}
+
+		function registerSuccess() {
+			var buttonInfo = document.getElementById('buttonInfo');
+			if (tel && pass && check) {
+				buttonInfo.innerHTML = "✅";
+				setTimeout(function() {
+					alert("注册成功");
+				}, 300)
+			} else {
+				buttonInfo.innerHTML = '输入信息错误，请检查输入信息';
+				buttonInfo.style.color = 'red';
+			}
+		}
+
+		function changeIcon(obj) {
+			if (eye) {
+				obj.src = "eyeClose.png";
+				obj.parentNode.getElementsByTagName('input')[0].type = "password";
+			} else {
+				obj.src = "eyeOpend.png";
+				obj.parentNode.getElementsByTagName('input')[0].type = "text";
+			}
+			eye = !eye;
+		}
+	</script>
+</html>

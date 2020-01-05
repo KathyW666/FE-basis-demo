@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id="clock"></h1>
+	</body>
+	<script type="text/javascript">
+		var oClock = document.getElementById('clock');
+		var deadline = new Date();
+		deadline.setYear(2019);
+		deadline.setMonth(11);
+		deadline.setDate(6);
+		deadline.setHours(22);
+		deadline.setMinutes(0);
+		deadline.setSeconds(0);
+		
+		var timer = null;
+		timer = setInterval(countdown, 1000);
+		
+		function countdown() {
+			var milli = deadline - new Date();
+			if (milli <= 0) {
+				oClock.innerHTML = '哈哈下课了';
+				clearInterval(timer);
+				timer = null;
+				return;
+			}
+			var hours = refine(milli/1000/60/60);
+			var mins = refine((milli/1000/60- hours*60))
+			var seconds = refine(milli/1000-hours*60*60-mins*60);
+			
+			oClock.innerHTML = hours + ' 时 ' + mins + ' 分 ' + seconds + ' 秒';
+			timer = null;
+		}
+		
+		function refine(time) {
+			var digit = Math.floor(time);
+			if (digit < 10) {
+				digit = '0' + digit;
+			}
+			return digit;
+		}	
+	</script>
+</html>

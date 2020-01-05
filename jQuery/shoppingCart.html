@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			background: #f5f5f5;
+		}
+
+		.cart {
+			width: 50%;
+			height: 100%;
+			margin: auto;
+			padding-top: 10px;
+			font-size: 1rem;
+		}
+
+		.cart>span {
+			padding-left: 30px;
+		}
+
+		ul {
+			margin-top: 0.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		li {
+			width: 100%;
+			list-style: none;
+			border-top: 1px solid #e1e1e1;
+			padding: 10px 0 10px 10px;
+			font-size: 0.8rem;
+			display: flex;
+		}
+
+		li:last-child {
+			position: fixed;
+			bottom: 0;
+			width: 50%;
+			padding: 0 0 0 10px;
+			background: white;
+			border-top: 1px solid #b2b2b2;
+		}
+
+		.item {
+			width: 70px;
+			height: 70px;
+			margin-right: 20px;
+			vertical-align: top;
+		}
+
+		.radio {
+			margin-right: 20px;
+			width: 16px;
+			height: 16px;
+			border: 1px solid #BABABA;
+			border-radius: 10px;
+			align-self: center;
+		}
+
+		.radio:hover,
+		.plus:hover,
+		.minus:hover,
+		.delete:hover {
+			cursor: pointer;
+		}
+
+		.price {
+			margin-top: 10px;
+			color: #e26e8c;
+			font-size: 16px;
+		}
+
+		.price:before {
+			content: '￥';
+		}
+
+		.content {
+			flex-grow: 1;
+		}
+
+		.delete {
+			margin-right: 10px;
+			width: 24px;
+			height: 24px;
+		}
+
+		.count {
+			margin-top: -10px;
+		}
+
+		.op {
+			float: right;
+			text-align: center;
+			margin-right: -1px;
+			position: relative;
+			left: 10px;
+			width: 38px;
+			height: 28px;
+			line-height: 28px;
+			background: #f5f5f5;
+			border: 1px solid #e1e1e1;
+		}
+
+		.num {
+			background: white;
+		}
+
+		.account .content {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.account .content div {
+			line-height: 48px;
+			font-size: 16px;
+			background: white;
+		}
+
+		.all {
+			flex-grow: 1;
+			color: #b2b2b2;
+		}
+
+		.total {
+			color: red;
+			font-size: 1.1rem;
+			font-weight: bolder;
+			padding-right: 10px;
+			;
+		}
+
+		.pay {
+			border: none;
+			line-height: 48px;
+			font-size: 16px;
+			width: 105px;
+			height: 48px;
+			background: #b2b2b2;
+			color: white;
+			text-align: center;
+		}
+
+		.actRadio {
+			background: #EB5562;
+			border: 1px solid #EB5562;
+		}
+
+		.act {
+			background: #EB5562;
+			cursor: pointer;
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		@media screen and (max-width: 1200px) {
+			.cart {
+				width: 80%;
+				height: 100%;
+				margin: auto;
+				padding-top: 10px;
+				font-size: 1rem;
+			}
+
+			li:last-child {
+				position: fixed;
+				bottom: 0;
+				width: 80%;
+				padding: 0 0 0 10px;
+				background: white;
+				border-top: 1px solid #b2b2b2;
+			}
+		}
+	</style>
+	<body>
+		<div class="cart">
+			<span>我的购物车</span>
+			<ul>
+				<li class='product'>
+					<div class="radio"></div>
+					<img class='item' src="item.png">
+					<div class="content">
+						<div class="name">酷冷至尊(Cooler Master)T610P CPU风冷散热器</div>
+						<div class="price">100</div>
+						<div class="count">
+							<div class="op plus">+</div>
+							<div class="op num">1</div>
+							<div class="op minus">-</div>
+						</div>
+					</div>
+					<div>
+						<img class='delete' src="delete.png">
+					</div>
+				</li>
+
+				<li class='product'>
+					<div class="radio"></div>
+					<img class='item' src="item.png">
+					<div class="content">
+						<div class="name">游戏悍将 35英寸曲面电竞显示器21:9带鱼屏准4K游戏显示器</div>
+						<div class="price">200</div>
+						<div class="count">
+							<div class="op plus">+</div>
+							<div class="op num">1</div>
+							<div class="op minus">-</div>
+						</div>
+					</div>
+					<div>
+						<img class='delete' src="delete.png">
+					</div>
+				</li>
+				<li class='product'>
+					<div class="radio"></div>
+					<img class='item' src="item.png">
+					<div class="content">
+						<div class="name">技嘉（GIGABYTE） 2080TURBO OC 8GC</div>
+						<div class="price">300</div>
+						<div class="count">
+							<div class="op plus">+</div>
+							<div class="op num">1</div>
+							<div class="op minus">-</div>
+						</div>
+					</div>
+					<div>
+						<img class='delete' src="delete.png">
+					</div>
+				</li>
+				<li class='product'>
+					<div class="radio"></div>
+					<img class='item' src="item.png">
+					<div class="content">
+						<div class="name">AMD 锐龙 5 2600X 处理器 (R5) 6核12线程 AM4</div>
+						<div class="price">400</div>
+						<div class="count">
+							<div class="op plus">+</div>
+							<div class="op num">1</div>
+							<div class="op minus">-</div>
+							<div id="clear"></div>
+						</div>
+					</div>
+					<div>
+						<img class='delete' src="delete.png">
+					</div>
+				</li>
+				<li class="account">
+					<div class="radio"></div>
+					<div class="content">
+						<div class="all">全选</div>
+						<div class="total">￥0.00</div>
+					</div>
+					<button disabled class='pay'>结算</button>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var actItems = 0;
+		var items = $('.item').length;
+		var currentTotal = 0;
+		var selectedNumber = 0;
+
+		// 点击单个商品
+		$('.product .radio').click(function() {
+			var productPrice = Number($(this).siblings('.content').children('.price').html());
+			var productNum = Number($(this).siblings('.content').find('.num').html());
+			if ($(this)[0].className === 'radio') {
+				$(this).addClass('actRadio');
+				selectedNumber = updateSelectedNumber(++actItems);
+				if (actItems === items) {
+					$('.account .radio').addClass('actRadio');
+				}
+				currentTotal += productPrice * productNum;
+				$('.total').html('￥' + currentTotal.toFixed(2))
+			} else {
+				if ($('.account .radio')[0].className !== 'radio') {
+					$('.account .radio').removeClass('actRadio');
+				}
+				$(this).removeClass('actRadio');
+				selectedNumber = updateSelectedNumber(--actItems);
+				currentTotal -= productPrice * productNum;
+				$('.total').html('￥' + currentTotal.toFixed(2));
+			}
+			checkBuyButton()
+		})
+
+		// 点击全选
+		$('.account .radio').click(function() {
+			if ($(this)[0].className === 'radio') {
+				$(this).addClass('actRadio');
+				$('.product .radio').addClass('actRadio');
+				selectedNumber = updateSelectedNumber(items);
+				currentTotal = getTotal();
+				$('.total').html('￥' + currentTotal.toFixed(2));
+				actItems = items;
+			} else {
+				$(this).removeClass('actRadio');
+				$('.product .radio').removeClass('actRadio');
+				selectedNumber = updateSelectedNumber(0);
+				currentTotal = 0;
+				$('.total').html('￥' + currentTotal.toFixed(2))
+				actItems = 0;
+			}
+			checkBuyButton();
+		})
+
+		$('.delete').click(function() {
+			var price = Number($(this).parent().siblings('.content').children('.price').html());
+			var num = Number($(this).parent().siblings('.content').find('.num').html());
+			var res = confirm('确认删除该商品？');
+			if (res) {
+				if ($(this).parent().siblings('.radio').hasClass('actRadio')) {
+					selectedNumber = updateSelectedNumber(--actItems);
+					currentTotal -= price * num;
+					$('.total').html('￥' + currentTotal.toFixed(2));
+				}
+				$(this).closest('li').remove();
+				items--;
+				if(!items) {
+					$('.account .radio').removeClass('actRadio');
+				}						
+				checkBuyButton();
+			}			
+		})
+
+		// 点击'+'
+		$('.plus').click(function(){
+			var num = Number($(this).next().html());
+			if (num < 9) {
+				$(this).next().html(++num);
+				// 已选商品改变总和, 否则总和不变
+				if ($(this).parents('.product').children('.radio').hasClass('actRadio')) {
+					currentTotal += Number($(this).parent().siblings('.price').html());
+					$('.total').html('￥' + currentTotal.toFixed(2))
+				}
+			} else {
+				alert('已达到最大可选数量！');
+			}
+		})
+
+		// 点击'-'
+		$('.minus').click(function(){
+			var num = Number($(this).prev().html());
+			if (num > 1) {
+				$(this).prev().html(--num);
+				if ($(this).parents('.product').children('.radio').hasClass('actRadio')) {
+					currentTotal -= Number($(this).parent().siblings('.price').html());
+					$('.total').html('￥' + currentTotal.toFixed(2))
+				}
+			} else {
+				alert('至少选择一个！');
+			}
+		})
+
+		// 检查结算button
+		function checkBuyButton() {
+			if (selectedNumber === 0) {
+				$('.pay').attr('disabled', '').removeClass('act');
+			} else {
+				$('.pay').removeAttr('disabled').addClass('act');
+			}
+		}
+
+		// 直接计算总和
+		function getTotal() {
+			var total = 0
+			$('.price').each(function() {
+				total += $(this).html() * $(this).next().find('.num').html();
+			});
+			return total;
+		}
+
+		// 更新已选数量
+		function updateSelectedNumber(itemNum) {
+			if (itemNum === 0) {
+				$('.all').html('全选');
+			} else {
+				$('.all').html('已选（' + itemNum + '）');
+			}
+			return itemNum;
+		}
+	</script>
+</html>
