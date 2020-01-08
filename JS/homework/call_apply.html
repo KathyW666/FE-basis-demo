@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Father(word, word1) {
+			this.word = word1;
+			this.showName = function() {
+				console.log(this.word);
+			}
+		}
+		
+		function Child(word, word1) {
+			Father.call(this, word, word1);
+		}
+		
+		var c = new Child('boys','girls');
+		var f = new Father('father','father1');
+		f.showName();
+		c.showName();
+		console.log(f.word);
+		console.log(c.word);
+	</script>
+</html>
